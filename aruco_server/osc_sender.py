@@ -18,6 +18,7 @@ class OscSender:
     def send_marker(self, marker):
 
         c = marker.corners
+        r = marker.rvec[0]
 
         msg = [
 
@@ -30,6 +31,10 @@ class OscSender:
             marker.roll,
             marker.pitch,
             marker.yaw,
+
+            float(r[0]),
+            float(r[1]),
+            float(r[2]),
 
             int(c[0][0]),
             int(c[0][1]),

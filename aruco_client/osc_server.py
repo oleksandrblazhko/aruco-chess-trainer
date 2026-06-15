@@ -46,15 +46,21 @@ class OSCServer:
         """
         Static method to handle incoming OSC messages.
         It updates the shared markers dictionary.
+        Message format: /marker id tx ty tz roll pitch yaw rvx rvy rvz c1x c1y c2x c2y c3x c3y c4x c4y
         """
+        if len(args) != 18:
+            print(f"Warning: Received OSC message with incorrect number of arguments ({len(args)}), expected 18.")
+            return
+
         marker_id = args[0]
         tx, ty, tz = args[1:4]
         roll, pitch, yaw = args[4:7]
-        raw_corners = np.array(args[7:], dtype=np.float32).reshape((4, 2))
+        rvec = args[7:10]
+        raw_corners = np.array(args[10:], dtype=np.float32).reshape((4, 2))
         
         scaled_corners = (raw_corners * [scale_x, scale_y]).astype(np.int32)
         
         if marker_id in markers_ref:
-            markers_ref[marker_id].update(tx, ty, tz, roll, pitch, yaw, scaled_corners)
+            markers_ref[marker_id].update(tx, ty, tz, roll, pitch, yaw, rvec, scaled_corners)
         else:
-            markers_ref[marker_id] = Marker(marker_id, tx, ty, tz, roll, pitch, yaw, scaled_corners)
+            markers_ref[marker_id] = Marker(marker_id, tx, ty, tz, roll, pitch, yaw, rvec, scaled_corners)

@@ -66,6 +66,7 @@ async def main_loop(args, objects_data, control_marker_id, audio_base_dir, bound
             
             # Use the original stable rendering method
             renderer.draw_markers(markers, args.no_text)
+            renderer.draw_projected_markers(markers, calibration, args.marker_size)
 
             if not args.no_proximity_check:
                 renderer.draw_control_marker_distance(markers.get(control_marker_id), closest_dist)

@@ -1,18 +1,20 @@
 import cv2
 import numpy as np
+from .projection import project_marker_to_board
 
 class Renderer:
     def __init__(self, width, height):
         self.width = width
         self.height = height
         self.frame = np.full((height, width, 3), 255, dtype=np.uint8)
+        self.board_to_image_matrix = None
 
     def clear_frame(self):
         """Resets the frame to a blank white state."""
         self.frame[:] = 255
 
     def draw_table_grid(self, table_zone, pixels_per_meter):
-        """Draws the calibrated 8x8 grid on the frame."""
+        """Draws the calibrated 8x8 grid and stores the transformation matrix."""
         if not table_zone or pixels_per_meter == 0:
             return
 
@@ -31,19 +33,21 @@ class Renderer:
         inset_dst_pts = np.array(inset_dst_pts, dtype=np.float32)
 
         grid_src_pts = np.float32([[0, 0], [8, 0], [8, 8], [0, 8]])
-        grid_M = cv2.getPerspectiveTransform(grid_src_pts, inset_dst_pts)
+        
+        # Calculate and store the board-to-image transformation matrix
+        self.board_to_image_matrix = cv2.getPerspectiveTransform(grid_src_pts, inset_dst_pts)
 
         grid_color = (0, 255, 0)
         for i in range(1, 8):
             # Vertical lines
             line_src_v = np.float32([[[i, 0]], [[i, 8]]])
-            line_dst_v = cv2.perspectiveTransform(line_src_v, grid_M)
+            line_dst_v = cv2.perspectiveTransform(line_src_v, self.board_to_image_matrix)
             pt1_v, pt2_v = tuple(line_dst_v[0][0].astype(int)), tuple(line_dst_v[1][0].astype(int))
             cv2.line(self.frame, pt1_v, pt2_v, grid_color, 1)
 
             # Horizontal lines
             line_src_h = np.float32([[[0, i]], [[8, i]]])
-            line_dst_h = cv2.perspectiveTransform(line_src_h, grid_M)
+            line_dst_h = cv2.perspectiveTransform(line_src_h, self.board_to_image_matrix)
             pt1_h, pt2_h = tuple(line_dst_h[0][0].astype(int)), tuple(line_dst_h[1][0].astype(int))
             cv2.line(self.frame, pt1_h, pt2_h, grid_color, 1)
 
@@ -89,3 +93,41 @@ class Renderer:
         """Displays the OpenCV frame."""
         cv2.imshow("Client", self.frame)
         return cv2.waitKey(1) & 0xFF
+    
+    def draw_projected_markers(self, markers, calibration, marker_size):
+        # Ensure the grid and transformation matrix are ready
+        if self.board_to_image_matrix is None:
+            return
+
+        for marker in markers.values():
+            # Get the marker's projected corners in board space (0-8)
+            board_coords = project_marker_to_board(marker, calibration, marker_size)
+            if board_coords is None:
+                continue
+
+            # Transform the board corner points to image (pixel) space
+            image_points = cv2.perspectiveTransform(
+                np.array([board_coords]), 
+                self.board_to_image_matrix
+            )[0]
+            
+            # Draw the red projected contour
+            cv2.polylines(
+                self.frame, 
+                [np.int32(image_points)], 
+                isClosed=True, 
+                color=(0, 0, 255), 
+                thickness=2
+            )
+            
+            # Optionally, add text near the first corner
+            text_pos = image_points[0]
+            cv2.putText(
+                self.frame,
+                f"id={marker.marker_id}",
+                (int(text_pos[0]) + 5, int(text_pos[1]) - 5),
+                cv2.FONT_HERSHEY_SIMPLEX,
+                0.4,
+                (0, 0, 255),
+                1
+            )

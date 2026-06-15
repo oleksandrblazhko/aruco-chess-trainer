@@ -1,6 +1,6 @@
 import time
 import numpy as np
-from config import AUDIO_GRACE_PERIOD
+from .config import AUDIO_GRACE_PERIOD
 
 class ProximityDetector:
     def __init__(self, audio_manager):

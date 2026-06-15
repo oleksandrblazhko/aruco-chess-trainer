@@ -19,7 +19,7 @@ def parse_args():
     parser.add_argument(
         "--size",
         type=float,
-        default=0.012
+        default=0.010
     )
 
     parser.add_argument(

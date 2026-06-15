@@ -5,7 +5,7 @@ import numpy as np
 from pythonosc.dispatcher import Dispatcher
 from pythonosc.osc_server import AsyncIOOSCUDPServer
 
-from models import Marker
+from .models import Marker
 
 class OSCServer:
     def __init__(self, ip, port, markers_dict, scale_x=1.0, scale_y=1.0):

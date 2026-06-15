@@ -7,7 +7,10 @@ class AudioManager:
     def __init__(self, audio_base_dir="audio"):
         pygame.mixer.init()
         pygame.mixer.set_num_channels(32)  # Increase channels for multiple sounds
-        self.audio_base_dir = audio_base_dir
+        
+        script_dir = os.path.dirname(__file__)
+        self.full_audio_base_dir = os.path.join(script_dir, audio_base_dir)
+
         self.main_audio_channel = pygame.mixer.Channel(0)
         self.active_main_audio_file = None
         self.camera_prox_channels = {}
@@ -28,7 +31,7 @@ class AudioManager:
         if self.active_main_audio_file != filename:
             self.stop_looping_sound()  # Stop current sound if different
             try:
-                full_path = os.path.join(self.audio_base_dir, filename)
+                full_path = os.path.join(self.full_audio_base_dir, filename)
                 sound = pygame.mixer.Sound(full_path)
                 self.main_audio_channel.play(sound, -1)  # -1 loops
                 self.active_main_audio_file = filename
@@ -49,7 +52,7 @@ class AudioManager:
         """Plays a unique sound for a marker getting close to the camera."""
         if marker_id not in self.camera_prox_channels:
             try:
-                full_path = os.path.join(self.audio_base_dir, filename)
+                full_path = os.path.join(self.full_audio_base_dir, filename)
                 sound = pygame.mixer.Sound(full_path)
                 channel = pygame.mixer.find_channel(True)  # Find an available channel
                 if channel:

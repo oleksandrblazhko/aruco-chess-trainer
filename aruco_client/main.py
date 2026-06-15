@@ -2,15 +2,15 @@ import asyncio
 import time
 import cv2
 
-from config import parse_arguments, load_objects_config, MARKER_TIMEOUT, BOUNDARY_IDS
-from models import Marker
-from audio_manager import AudioManager
-from osc_server import OSCServer
-from calibration import Calibration
-from proximity_detector import ProximityDetector
-from renderer import Renderer
+from .config import parse_arguments, load_objects_config, MARKER_TIMEOUT
+from .models import Marker
+from .audio_manager import AudioManager
+from .osc_server import OSCServer
+from .calibration import Calibration
+from .proximity_detector import ProximityDetector
+from .renderer import Renderer
 
-async def main_loop(args, objects_data, control_marker_id, audio_base_dir):
+async def main_loop(args, objects_data, control_marker_id, audio_base_dir, boundary_ids):
     # --- Initialization ---
     renderer = Renderer(args.width, args.height)
     audio_manager = AudioManager(audio_base_dir)
@@ -40,7 +40,7 @@ async def main_loop(args, objects_data, control_marker_id, audio_base_dir):
 
             # --- Calibration Logic ---
             if calibration.is_running():
-                calibration.update(markers)
+                calibration.update(markers, boundary_ids)
                 # The finish logic is now inside the class, check if it finished
                 if not calibration.is_running():
                      # Update thresholds and ratios once calibration is done
@@ -59,11 +59,12 @@ async def main_loop(args, objects_data, control_marker_id, audio_base_dir):
                 )
 
             # --- Visualization ---
-            boundary_markers_viz = {mid: markers[mid] for mid in BOUNDARY_IDS if mid in markers}
+            boundary_markers_viz = {mid: markers[mid] for mid in boundary_ids if mid in markers}
             renderer.draw_boundary(boundary_markers_viz, calibration.table_zone)
             if calibration.table_zone:
                 renderer.draw_table_grid(calibration.table_zone, calibration.pixels_per_meter)
             
+            # Use the original stable rendering method
             renderer.draw_markers(markers, args.no_text)
 
             if not args.no_proximity_check:
@@ -79,7 +80,7 @@ async def main_loop(args, objects_data, control_marker_id, audio_base_dir):
                 if not calibration.is_running():
                     calibration.start()
                     # Pass the marker size to the finish method when it's called internally
-                    calibration.finish = lambda m: Calibration.finish(calibration, m, args.marker_size)
+                    calibration.finish = lambda m: Calibration.finish(calibration, m, args.marker_size, boundary_ids)
                     asyncio.create_task(audio_manager.play_calibration_beeps())
             
             await asyncio.sleep(1/60)
@@ -95,13 +96,13 @@ async def main_loop(args, objects_data, control_marker_id, audio_base_dir):
 
 async def init_main():
     args = parse_arguments()
-    objects_data, control_marker_id, audio_base_dir = load_objects_config()
+    objects_data, control_marker_id, audio_base_dir, boundary_ids = load_objects_config()
 
     if not objects_data:
         print("Exiting due to configuration errors.")
         return
 
-    await main_loop(args, objects_data, control_marker_id, audio_base_dir)
+    await main_loop(args, objects_data, control_marker_id, audio_base_dir, boundary_ids)
 
 if __name__ == '__main__':
     try:

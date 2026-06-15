@@ -1,12 +1,10 @@
 import time
 import numpy as np
-from config import BOUNDARY_IDS
 
 class Calibration:
     def __init__(self, duration=3.0):
         self.duration = duration
         self.is_calibrating = False
-        self.start_time = 0
         self.data = {}
         
         # Results
@@ -27,17 +25,17 @@ class Calibration:
     def is_running(self):
         return self.is_calibrating
 
-    def update(self, markers):
+    def update(self, markers, boundary_ids):
         """Collects data for boundary markers during calibration."""
         if not self.is_calibrating:
             return
 
         elapsed = time.time() - self.start_time
         if elapsed > self.duration:
-            self.finish(markers)
+            self.finish(markers) # The lambda in main.py will pass the other args
             return
 
-        for marker_id in BOUNDARY_IDS:
+        for marker_id in boundary_ids:
             if marker_id in markers:
                 if marker_id not in self.data:
                     self.data[marker_id] = {'centers': [], 'widths': [], 'zs': []}
@@ -45,7 +43,7 @@ class Calibration:
                 self.data[marker_id]['widths'].append(markers[marker_id].get_pixel_width())
                 self.data[marker_id]['zs'].append(markers[marker_id].tz)
 
-    def finish(self, markers, marker_size):
+    def finish(self, markers, marker_size, boundary_ids):
         """Calculates the final calibration results."""
         self.is_calibrating = False
         print("Calibration finished. Calculating average positions...")
@@ -53,7 +51,7 @@ class Calibration:
         temp_zone = []
         visible_marker_widths = []
         visible_marker_zs = []
-        sorted_ids = sorted(list(BOUNDARY_IDS))
+        sorted_ids = sorted(list(boundary_ids))
 
         for marker_id in sorted_ids:
             if marker_id in self.data and len(self.data[marker_id]['centers']) > 0:

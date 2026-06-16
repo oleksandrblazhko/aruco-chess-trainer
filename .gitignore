@@ -1,2 +1,3 @@
 .DS_Store
 client/ArUcoTUI_Client/windows-amd64/
+__pycache__/

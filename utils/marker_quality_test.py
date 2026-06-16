@@ -10,8 +10,8 @@ import winsound
 # --- Constants ---
 CAM_INDEX = 0
 MARKER_SIZE_M = 0.012  # Marker size in meters
-# ARUCO_DICTIONARY = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_4X4_250)
-ARUCO_DICTIONARY = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_APRILTAG_16h5)
+ARUCO_DICTIONARY = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_4X4_250)
+# ARUCO_DICTIONARY = cv2.aruco.getPredefinedDictionary(cv2.aruco.DICT_APRILTAG_16h5)
 ARUCO_PARAMS = cv2.aruco.DetectorParameters()
 # Build path to camera calibration file relative to this script's location
 script_dir = os.path.dirname(os.path.abspath(__file__))

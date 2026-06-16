@@ -177,6 +177,7 @@ Test Duration per Setup: 5 seconds
 8. Marker ID: 30  , Average Detection Rate: 99.91%
 9. Marker ID: 69  , Average Detection Rate: 99.27%
 10. Marker ID: 50  , Average Detection Rate: 99.27%
+
 11. Marker ID: 64  , Average Detection Rate: 98.57%
 12. Marker ID: 4   , Average Detection Rate: 98.51%
 13. Marker ID: 48  , Average Detection Rate: 98.38%
@@ -190,21 +191,13 @@ Test Duration per Setup: 5 seconds
 21. Marker ID: 2   , Average Detection Rate: 95.76%
 22. Marker ID: 37  , Average Detection Rate: 95.61%
 23. Marker ID: 33  , Average Detection Rate: 95.34%
-
 24. Marker ID: 3   , Average Detection Rate: 93.57%
-
 25. Marker ID: 25  , Average Detection Rate: 93.08%
-
 26. Marker ID: 16  , Average Detection Rate: 92.10%
-
 27. Marker ID: 32  , Average Detection Rate: 91.83%
-
 28. Marker ID: 26  , Average Detection Rate: 91.55%
-
 29. Marker ID: 38  , Average Detection Rate: 90.61%
-
 30. Marker ID: 45  , Average Detection Rate: 90.49%
-
 31. Marker ID: 6   , Average Detection Rate: 90.30%
 
 32. Marker ID: 54  , Average Detection Rate: 90.07%

@@ -1,6 +1,7 @@
 import asyncio
 import functools
 import numpy as np
+import time
 
 from pythonosc.dispatcher import Dispatcher
 from pythonosc.osc_server import AsyncIOOSCUDPServer
@@ -15,7 +16,7 @@ class OSCServer:
 
         # Create a partial function with the necessary arguments for the handler
         handler_with_context = functools.partial(
-            self.marker_handler, 
+            OSCServer.marker_handler, 
             markers_ref=self.markers,
             scale_x=scale_x, 
             scale_y=scale_y

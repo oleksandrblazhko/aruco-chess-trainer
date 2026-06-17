@@ -1,7 +1,8 @@
 import cv2
 import time
+import numpy as np
 
-from config import parse_args
+from config import parse_args, load_valid_marker_ids
 
 from calibration import (
     load_camera_calibration
@@ -46,6 +47,8 @@ def main():
     camera_matrix, dist_coeffs = \
         load_camera_calibration()
 
+    valid_ids = load_valid_marker_ids(args.objects)
+
     cap = create_camera(
         args.cam,
         args.width,
@@ -82,6 +85,16 @@ def main():
             detector,
             frame
         )
+
+        # Filter markers based on the whitelist
+        if ids is not None and valid_ids is not None:
+            filtered_indices = [i for i, id_arr in enumerate(ids) if id_arr[0] in valid_ids]
+            if len(filtered_indices) > 0:
+                ids = ids[filtered_indices]
+                corners = tuple(np.array(corners)[filtered_indices])
+            else:
+                ids = None
+                corners = None
 
         now = time.time()
 

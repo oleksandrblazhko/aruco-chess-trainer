@@ -64,26 +64,56 @@ class Calibration:
         self.is_calibrating = False
         print("Calibration finished. Calculating average positions...")
         
+        # Calculate average positions for all visible boundary markers first
+        avg_marker_data = {}
+        for marker_id in boundary_ids:
+            if marker_id in self.data and len(self.data[marker_id]['centers']) > 0:
+                avg_marker_data[marker_id] = {
+                    'center': np.mean(self.data[marker_id]['centers'], axis=0),
+                    'tvec': np.mean(self.data[marker_id]['tvecs'], axis=0),
+                    'widths': self.data[marker_id]['widths']
+                }
+
+        if len(avg_marker_data) != 4:
+            print("Error: Could not define table zone. Not all 4 boundary markers were visible.")
+            self.data = {}
+            return
+
+        # Sort marker IDs based on the spatial position of their average center point
+        marker_centers = {mid: data['center'] for mid, data in avg_marker_data.items()}
+        
+        points = np.array(list(marker_centers.values()))
+        centroid = np.mean(points, axis=0)
+        
+        # Create a list of tuples (angle, marker_id) for sorting
+        id_angle_list = []
+        for marker_id, center in marker_centers.items():
+            angle = np.arctan2(center[1] - centroid[1], center[0] - centroid[0])
+            id_angle_list.append((angle, marker_id))
+            
+        # Sort by angle
+        id_angle_list.sort()
+        sorted_ids = [marker_id for angle, marker_id in id_angle_list]
+
+        # Now, build the results using the correctly sorted IDs
         temp_zone = []
         visible_marker_widths = []
         avg_tvecs = {}
-        # NOTE: sorted_ids assumes [top-left, top-right, bottom-right, bottom-left]
-        # This depends on the marker IDs chosen. 74, 86, 139, 141 work this way.
-        sorted_ids = sorted(list(boundary_ids)) 
-
         for marker_id in sorted_ids:
-            if marker_id in self.data and len(self.data[marker_id]['centers']) > 0:
-                avg_point = np.mean(self.data[marker_id]['centers'], axis=0).astype(int)
-                avg_tvec = np.mean(self.data[marker_id]['tvecs'], axis=0)
-                temp_zone.append(avg_point)
-                avg_tvecs[marker_id] = avg_tvec
-                visible_marker_widths.extend(self.data[marker_id]['widths'])
-            else:
-                print(f"Warning: No data collected for boundary marker {marker_id}.")
+            data = avg_marker_data[marker_id]
+            temp_zone.append(data['center'].astype(int))
+            avg_tvecs[marker_id] = data['tvec']
+            visible_marker_widths.extend(data['widths'])
         
         if len(temp_zone) == 4:
             self.table_zone = temp_zone
             self.boundary_marker_tvecs = avg_tvecs
+            
+            # --- Calculate Average Boundary Z-depth ---
+            all_tvecs = np.array(list(avg_tvecs.values()))
+            self.avg_boundary_z = np.mean(all_tvecs[:, 2])
+            print(f"Average boundary plane depth (tz): {self.avg_boundary_z:.3f}m")
+
             print("Calibration successful: Table zone and 3D positions defined.")
             
             # --- Calculate 3D Transformation ---

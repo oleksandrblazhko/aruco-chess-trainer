@@ -57,12 +57,20 @@ class Renderer:
             pts = np.array(calibrated_zone, dtype=np.int32)
             cv2.polylines(self.frame, [pts], isClosed=True, color=(0, 255, 0), thickness=2)
         elif len(boundary_markers) == 4:
-            sorted_ids = sorted(list(boundary_markers.keys()))
-            p0, p1, p2, p3 = (boundary_markers[id].get_center() for id in sorted_ids)
-            cv2.line(self.frame, tuple(p0), tuple(p1), (0, 255, 0), 2)
-            cv2.line(self.frame, tuple(p1), tuple(p2), (0, 255, 0), 2)
-            cv2.line(self.frame, tuple(p2), tuple(p3), (0, 255, 0), 2)
-            cv2.line(self.frame, tuple(p3), tuple(p0), (0, 255, 0), 2)
+            # Отримайте центральні точки маркерів
+            points = np.array([marker.get_center() for marker in boundary_markers.values()])
+
+            # Обчисліть центроїд точок
+            centroid = np.mean(points, axis=0)
+
+            # Сортуйте точки за кутом навколо центроїда
+            # Це впорядкує їх за годинниковою або проти годинникової стрілки
+            angles = np.arctan2(points[:, 1] - centroid[1], points[:, 0] - centroid[0])
+            sorted_indices = np.argsort(angles)
+            sorted_points = points[sorted_indices]
+
+            # Намалюйте межу як замкнутий багатокутник
+            cv2.polylines(self.frame, [np.int32(sorted_points)], isClosed=True, color=(0, 255, 0), thickness=2)
 
     def draw_markers(self, markers, no_text=False):
         """Draws all detected markers and their information."""

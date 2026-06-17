@@ -4,7 +4,7 @@
         {
             "obj_id": 0,
             "obj_type": "control",
-            "marker_id": 17,
+            "marker_id": 85,
             "name": "control_object",
             "audio_name": ""
         },
@@ -76,7 +76,7 @@
         },
         {
             "obj_id": 12,
-            "marker_id": 85,
+            "marker_id": 120,
             "name": "білий пішак",
             "audio_name": "pishak.mp3"
         },
@@ -203,28 +203,28 @@
         {
             "obj_id": 33,
             "obj_type": "border",
-            "marker_id": 74,
+            "marker_id": 155,
             "name": "left-top-corner",
             "audio_name": ""
         },
         {
             "obj_id": 34,
             "obj_type": "border",
-            "marker_id": 86,
+            "marker_id": 206,
             "name": "right-top-corner",
             "audio_name": ""
         },
         {
             "obj_id": 35,
             "obj_type": "border",
-            "marker_id": 139,
+            "marker_id": 221,
             "name": "right-bottom-corner",
             "audio_name": ""
         },
         {
             "obj_id": 36,
             "obj_type": "border",
-            "marker_id": 141,
+            "marker_id": 176,
             "name": "left-bottom-corner",
             "audio_name": ""
         }

@@ -1,97 +1,36 @@
 import cv2
+from cv2 import aruco
 import numpy as np
 from . import config
 from .camera import CameraManager
-from .detector import find_corners
+from .detectors import find_chessboard_corners, find_charuco_corners
 from .sample_collector import SampleCollector
 from .calibrator import (
     perform_calibration,
+    perform_charuco_calibration,
     calculate_reprojection_error,
     save_calibration_data
 )
 from .ui import (
     draw_text,
     draw_corners,
+    draw_grid,
     show_frame,
     destroy_windows,
     wait_key,
 )
 from .quality_analyzer import QualityAnalyzer
 
-def run_validation(args, mtx, dist):
-    print("\n=== VALIDATION PHASE ===")
-    
-    try:
-        cam_manager = CameraManager(args.cam, args.width, args.height)
-    except IOError as e:
-        print(e)
-        return
-
-    locations = {
-        "Center": "Place the board in the center of the view and press any key.",
-        "Top-Left": "Place the board in the top-left corner and press any key.",
-        "Top-Right": "Place the board in the top-right corner and press any key.",
-        "Bottom-Left": "Place the board in the bottom-left corner and press any key.",
-        "Bottom-Right": "Place the board in the bottom-right corner and press any key.",
-    }
-    
-    validation_errors = {}
-
-    objp = np.zeros(
-        (config.CHESSBOARD_SIZE[0] * config.CHESSBOARD_SIZE[1], 3),
-        np.float32
+def get_charuco_board():
+    dictionary = aruco.getPredefinedDictionary(
+        getattr(aruco, config.CHARUCO_DICT_NAME)
     )
-    objp[:, :2] = np.mgrid[
-        0:config.CHESSBOARD_SIZE[0],
-        0:config.CHESSBOARD_SIZE[1]
-    ].T.reshape(-1, 2)
-    objp *= config.SQUARE_SIZE
-
-    for name, instruction in locations.items():
-        print(f"\n{instruction}")
-        while True:
-            frame = cam_manager.get_frame()
-            if frame is None:
-                print("Frame capture error")
-                cam_manager.release()
-                destroy_windows()
-                return
-
-            draw_text(frame, instruction, (20, 40), color=(0, 255, 255))
-            show_frame(frame, window_name="Validation")
-
-            key = wait_key(100)
-            if key != -1:
-                gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-                found, corners = find_corners(gray, config.CHESSBOARD_SIZE)
-                if found:
-                    _, rvecs, tvecs, _ = cv2.solvePnPRansac(objp, corners, mtx, dist)
-                    
-                    projected, _ = cv2.projectPoints(
-                        objp,
-                        rvecs,
-                        tvecs,
-                        mtx,
-                        dist
-                    )
-                    error = cv2.norm(
-                        corners,
-                        projected,
-                        cv2.NORM_L2
-                    ) / len(projected)
-                    validation_errors[name] = error
-                    print(f"{name} error: {error:.4f} px")
-                    break
-                else:
-                    print("Could not find chessboard. Please try again.")
-
-    cam_manager.release()
-    destroy_windows()
-
-    print("\n=== VALIDATION REPORT ===")
-    for name, error in validation_errors.items():
-        print(f"  {name:<15}: {error:.4f} px")
-
+    return aruco.CharucoBoard(
+        (config.CHARUCO_SQUARES_X, config.CHARUCO_SQUARES_Y),
+        config.CHARUCO_SQUARE_SIZE_M,
+        config.CHARUCO_MARKER_SIZE_M,
+        dictionary
+    )
 
 def main():
     args = config.get_args()
@@ -102,43 +41,68 @@ def main():
         print(e)
         return
 
-    collector = SampleCollector(config.CHESSBOARD_SIZE, config.SQUARE_SIZE)
-    analyzer = QualityAnalyzer(args.width, args.height)
+    board_type = args.board
+    if board_type == 'charuco':
+        board = get_charuco_board()
+        collector = SampleCollector()
+        status_text = "No ChArUco board"
+        print("=== Camera Calibration with ChArUco board ===")
+        print(f"Board: {config.CHARUCO_SQUARES_X}x{config.CHARUCO_SQUARES_Y}")
+    else:
+        board = None
+        collector = SampleCollector(config.CHESSBOARD_SIZE, config.SQUARE_SIZE_M)
+        status_text = "No chessboard"
+        print("=== Camera Calibration with Chessboard ===")
+        print(f"Chessboard: {config.CHESSBOARD_SIZE[0]}x{config.CHESSBOARD_SIZE[1]}")
 
-    print("\n=== Camera Calibration ===")
-    print(f"Chessboard: {config.CHESSBOARD_SIZE[0]}x{config.CHESSBOARD_SIZE[1]}")
-    print(f"Need {config.SAMPLES_NEEDED} samples")
-    print("Move chessboard around the image")
-    print("Press q to quit\n")
+    analyzer = QualityAnalyzer(args.width, args.height)
+    
+    print(f"Need {args.samples} samples")
+    print("Move board around the image")
+    print("Press q to quit")
 
     image_size = None
-    status_text = "No chessboard"
-
-    while collector.get_sample_count() < config.SAMPLES_NEEDED:
+    
+    while collector.get_sample_count() < args.samples:
         frame = cam_manager.get_frame()
         if frame is None:
             print("Frame capture error")
             break
 
+        if args.flip:
+            frame = cv2.flip(frame, config.FLIP_CODE)
+
+        draw_grid(frame, analyzer.grid_size, analyzer.grid_visits)
+
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         if image_size is None:
             image_size = gray.shape[::-1]
 
-        found, corners = find_corners(gray, config.CHESSBOARD_SIZE)
-
-        if found:
-            draw_corners(frame, config.CHESSBOARD_SIZE, corners, found)
-            captured, status_text = collector.add_sample(
-                corners, config.MIN_CENTER_SHIFT, config.CAPTURE_DELAY
-            )
-            if captured:
-                analyzer.add_sample(corners)
+        if board_type == 'charuco':
+            found, corners, charuco_ids = find_charuco_corners(gray, board, board.getDictionary())
+            if found:
+                draw_corners(frame, (config.CHARUCO_SQUARES_X, config.CHARUCO_SQUARES_Y), corners, found)
+                captured, status_text = collector.add_sample(
+                    corners, config.MIN_CENTER_SHIFT, config.CAPTURE_DELAY, charuco_ids=charuco_ids
+                )
+                if captured:
+                    analyzer.add_sample(corners)
         else:
-            status_text = "No chessboard"
+            found, corners = find_chessboard_corners(gray, config.CHESSBOARD_SIZE)
+            if found:
+                draw_corners(frame, config.CHESSBOARD_SIZE, corners, found)
+                captured, status_text = collector.add_sample(
+                    corners, config.MIN_CENTER_SHIFT, config.CAPTURE_DELAY
+                )
+                if captured:
+                    analyzer.add_sample(corners)
+
+        if not found:
+            status_text = f"No {board_type}"
         
         draw_text(
             frame,
-            f"Samples: {collector.get_sample_count()}/{config.SAMPLES_NEEDED}",
+            f"Samples: {collector.get_sample_count()}/{args.samples}",
             (20, 40)
         )
         draw_text(
@@ -148,6 +112,16 @@ def main():
             color=(0, 0, 255),
             font_scale=0.8
         )
+        
+        tilt_diversity = np.std(analyzer.aspect_ratios) if analyzer.aspect_ratios else 0
+        draw_text(
+            frame,
+            f"Tilt score: {tilt_diversity:.3f}",
+            (20, 160),
+            color=(0, 255, 255),
+            font_scale=0.8
+        )
+
         draw_text(
             frame,
             f"Grid Visited: {len(analyzer.grid_visits)}/{analyzer.grid_size[0] * analyzer.grid_size[1]}",
@@ -171,26 +145,35 @@ def main():
         print("Too few samples")
         return
 
-    objpoints, imgpoints = collector.get_points()
+    if board_type == 'charuco':
+        charuco_corners, charuco_ids = collector.get_points()
+        print("Performing calibration...")
+        rms, mtx, dist, rvecs, tvecs = perform_charuco_calibration(
+            charuco_corners, charuco_ids, board, image_size
+        )
+    else:
+        objpoints, imgpoints = collector.get_points()
+        print("Performing calibration...")
+        rms, mtx, dist, rvecs, tvecs = perform_calibration(
+            objpoints, imgpoints, image_size
+        )
 
-    print("\nPerforming calibration...")
-    rms, mtx, dist, rvecs, tvecs = perform_calibration(
-        objpoints, imgpoints, image_size
-    )
-
-    if mtx is None:
+    if 'mtx' not in locals() or mtx is None:
         return
 
-    reprojection_error = calculate_reprojection_error(
-        objpoints, imgpoints, rvecs, tvecs, mtx, dist
-    )
-
-    analyzer.generate_report(reprojection_error)
+    # Reprojection error calculation needs to be adapted for charuco
+    # For now, we skip it for charuco
+    if board_type != 'charuco':
+        reprojection_error = calculate_reprojection_error(
+            objpoints, imgpoints, rvecs, tvecs, mtx, dist
+        )
+        analyzer.generate_report(reprojection_error)
 
     save_calibration_data(args.file, mtx, dist)
     print(f"\nSaved: {args.file}")
     
-    run_validation(args, mtx, dist)
+    # Validation is also board specific
+    # run_validation(args, mtx, dist)
 
 
 if __name__ == "__main__":

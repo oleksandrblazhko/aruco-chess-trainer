@@ -4,7 +4,7 @@ import json
 
 def perform_calibration(objpoints, imgpoints, image_size):
     """
-    Performs camera calibration.
+    Performs camera calibration for chessboard.
     """
     try:
         rms, mtx, dist, rvecs, tvecs = cv2.calibrateCamera(
@@ -19,9 +19,27 @@ def perform_calibration(objpoints, imgpoints, image_size):
         print(f"Calibration error: {e}")
         return None, None, None, None, None
 
+def perform_charuco_calibration(charuco_corners, charuco_ids, board, image_size):
+    """
+    Performs camera calibration for ChArUco board.
+    """
+    try:
+        rms, mtx, dist, rvecs, tvecs = cv2.aruco.calibrateCameraCharuco(
+            charuco_corners,
+            charuco_ids,
+            board,
+            image_size,
+            None,
+            None
+        )
+        return rms, mtx, dist, rvecs, tvecs
+    except Exception as e:
+        print(f"Calibration error: {e}")
+        return None, None, None, None, None
+
 def calculate_reprojection_error(objpoints, imgpoints, rvecs, tvecs, mtx, dist):
     """
-    Calculates the mean reprojection error.
+    Calculates the mean reprojection error for chessboard.
     """
     total_error = 0
     for i in range(len(objpoints)):

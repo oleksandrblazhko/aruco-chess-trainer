@@ -1,5 +1,5 @@
 # Контролер
-Marker ID: 17  , Average Detection Rate: 100.00%
+Marker ID: 85  , Average Detection Rate: 100.00%
 
 # 32 фігури
 1. Marker ID: 13  , Average Detection Rate: 100.00%

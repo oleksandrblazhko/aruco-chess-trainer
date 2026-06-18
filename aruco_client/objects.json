@@ -10,7 +10,7 @@
         },
         {
             "obj_id": 1,
-            "marker_id": 110,
+            "marker_id": 87,
             "name": "біла тура",
             "audio_name": "tura.mp3"
         },
@@ -22,181 +22,181 @@
         },
         {
             "obj_id": 3,
-            "marker_id": 43,
+            "marker_id": 126,
             "name": "білий кінь",
             "audio_name": "kin.mp3"
         },
         {
             "obj_id": 4,
-            "marker_id": 121,
+            "marker_id": 62,
             "name": "білий кінь",
             "audio_name": "kin.mp3"
         },
         {
             "obj_id": 5,
-            "marker_id": 136,
+            "marker_id": 107,
             "name": "білий слон",
             "audio_name": "slon.mp3"
         },
         {
             "obj_id": 6,
-            "marker_id": 108,
+            "marker_id": 112,
             "name": "білий слон",
             "audio_name": "slon.mp3"
         },
         {
             "obj_id": 7,
-            "marker_id": 69,
+            "marker_id": 142,
             "name": "білий король",
             "audio_name": "korol.mp3"
         },
         {
             "obj_id": 8,
-            "marker_id": 87,
+            "marker_id": 99,
             "name": "біла королева",
             "audio_name": "koroleva.mp3"
         },
         {
             "obj_id": 9,
-            "marker_id": 112,
+            "marker_id": 69,
             "name": "білий пішак",
             "audio_name": "pishak.mp3"
         },
         {
             "obj_id": 10,
-            "marker_id": 126,
+            "marker_id": 115,
             "name": "білий пішак",
             "audio_name": "pishak.mp3"
         },
         {
             "obj_id": 11,
-            "marker_id": 142,
+            "marker_id": 136,
             "name": "білий пішак",
             "audio_name": "pishak.mp3"
         },
         {
             "obj_id": 12,
-            "marker_id": 120,
+            "marker_id": 10,
             "name": "білий пішак",
             "audio_name": "pishak.mp3"
         },
         {
             "obj_id": 13,
-            "marker_id": 48,
+            "marker_id": 30,
             "name": "білий пішак",
             "audio_name": "pishak.mp3"
         },
         {
             "obj_id": 14,
-            "marker_id": 118,
+            "marker_id": 23,
             "name": "білий пішак",
             "audio_name": "pishak.mp3"
         },
         {
             "obj_id": 15,
-            "marker_id": 99,
+            "marker_id": 121,
             "name": "білий пішак",
             "audio_name": "pishak.mp3"
         },
         {
             "obj_id": 16,
-            "marker_id": 94,
+            "marker_id": 118,
             "name": "білий пішак",
             "audio_name": "pishak.mp3"
         },
         {
             "obj_id": 17,
-            "marker_id": 115,
+            "marker_id": 41,
             "name": "чорна тура",
             "audio_name": "tura.mp3"
         },
         {
             "obj_id": 18,
-            "marker_id": 127,
+            "marker_id": 13,
             "name": "чорна тура",
             "audio_name": "tura.mp3"
         },
         {
             "obj_id": 19,
-            "marker_id": 10,
+            "marker_id": 80,
             "name": "чорний кінь",
             "audio_name": "kin.mp3"
         },
         {
             "obj_id": 20,
-            "marker_id": 107,
+            "marker_id": 49,
             "name": "чорний кінь",
             "audio_name": "kin.mp3"
         },
         {
             "obj_id": 21,
-            "marker_id": 21,
+            "marker_id": 110,
             "name": "чорний слон",
             "audio_name": "slon.mp3"
         },
         {
             "obj_id": 22,
-            "marker_id": 23,
+            "marker_id": 140,
             "name": "чорний слон",
             "audio_name": "slon.mp3"
         },
         {
             "obj_id": 23,
-            "marker_id": 5,
+            "marker_id": 164,
             "name": "чорна королева",
             "audio_name": "koroleva.mp3"
         },
         {
             "obj_id": 24,
-            "marker_id": 62,
+            "marker_id": 163,
             "name": "чорний корол",
             "audio_name": "korol.mp3"
         },
         {
             "obj_id": 25,
-            "marker_id": 125,
+            "marker_id": 145,
             "name": "чорний пішак",
             "audio_name": "pishak.mp3"
         },
         {
             "obj_id": 26,
-            "marker_id": 49,
+            "marker_id": 157,
             "name": "чорний пішак",
             "audio_name": "pishak.mp3"
         },
         {
             "obj_id": 27,
-            "marker_id": 30,
+            "marker_id": 196,
             "name": "чорний пішак",
             "audio_name": "pishak.mp3"
         },
         {
             "obj_id": 28,
-            "marker_id": 80,
+            "marker_id": 154,
             "name": "чорний пішак",
             "audio_name": "pishak.mp3"
         },
         {
             "obj_id": 29,
-            "marker_id": 140,
+            "marker_id": 201,
             "name": "чорний пішак",
             "audio_name": "pishak.mp3"
         },
         {
             "obj_id": 30,
-            "marker_id": 40,
+            "marker_id": 194,
             "name": "чорний пішак",
             "audio_name": "pishak.mp3"
         },
         {
             "obj_id": 31,
-            "marker_id": 41,
+            "marker_id": 147,
             "name": "чорний пішак",
             "audio_name": "pishak.mp3"
         },
         {
             "obj_id": 32,
-            "marker_id": 13,
+            "marker_id": 50,
             "name": "чорний пішак",
             "audio_name": "pishak.mp3"
         },

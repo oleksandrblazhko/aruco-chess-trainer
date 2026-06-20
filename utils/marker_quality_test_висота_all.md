@@ -1,4 +1,4 @@
-## Marker_size = 12.7 мм. Detection Rate. High = 360 мм
+## Detection Rate. Camera High = 360 мм
 
 1. Marker ID: 112 , Average Detection Rate: 100.00%
 2. Marker ID: 115 , Average Detection Rate: 100.00%
@@ -28,7 +28,67 @@
 26. Marker ID: 52  , Average Detection Rate: 87.74%
 27. Marker ID: 131 , Average Detection Rate: 79.85%
 
-## Marker_size = 10 мм. Detection Rate. High = 460 мм
+## Detection Rate. Camera High = 410 мм
+
+1. Marker ID: 10  , Average Detection Rate: 100.00%
+2. Marker ID: 112 , Average Detection Rate: 100.00%
+3. Marker ID: 30  , Average Detection Rate: 100.00%
+4. Marker ID: 17  , Average Detection Rate: 100.00%
+5. Marker ID: 49  , Average Detection Rate: 100.00%
+6. Marker ID: 107 , Average Detection Rate: 100.00%
+7. Marker ID: 110 , Average Detection Rate: 100.00%
+8. Marker ID: 13  , Average Detection Rate: 100.00%
+9. Marker ID: 41  , Average Detection Rate: 100.00%
+10. Marker ID: 118 , Average Detection Rate: 99.95%
+11. Marker ID: 62  , Average Detection Rate: 99.95%
+12. Marker ID: 126 , Average Detection Rate: 99.90%
+13. Marker ID: 80  , Average Detection Rate: 99.85%
+14. Marker ID: 140 , Average Detection Rate: 99.69%
+15. Marker ID: 23  , Average Detection Rate: 99.69%
+16. Marker ID: 115 , Average Detection Rate: 99.69%
+17. Marker ID: 142 , Average Detection Rate: 99.64%
+18. Marker ID: 121 , Average Detection Rate: 99.49%
+19. Marker ID: 136 , Average Detection Rate: 99.39%
+20. Marker ID: 69  , Average Detection Rate: 99.34%
+21. Marker ID: 85  , Average Detection Rate: 98.67%
+22. Marker ID: 87  , Average Detection Rate: 98.42%
+23. Marker ID: 50  , Average Detection Rate: 95.93%
+24. Marker ID: 63  , Average Detection Rate: 94.50%
+25. Marker ID: 131 , Average Detection Rate: 93.19%
+26. Marker ID: 52  , Average Detection Rate: 89.96%
+27. Marker ID: 129 , Average Detection Rate: 87.80%
+
+## Detection Rate. Camera High = 440 мм
+
+1. Marker ID: 30  , Average Detection Rate: 100.00%
+2. Marker ID: 115 , Average Detection Rate: 100.00%
+3. Marker ID: 10  , Average Detection Rate: 100.00%
+4. Marker ID: 80  , Average Detection Rate: 100.00%
+5. Marker ID: 13  , Average Detection Rate: 100.00%
+6. Marker ID: 17  , Average Detection Rate: 100.00%
+7. Marker ID: 107 , Average Detection Rate: 100.00%
+8. Marker ID: 110 , Average Detection Rate: 100.00%
+9. Marker ID: 112 , Average Detection Rate: 99.95%
+10. Marker ID: 118 , Average Detection Rate: 99.95%
+11. Marker ID: 126 , Average Detection Rate: 99.95%
+12. Marker ID: 23  , Average Detection Rate: 99.90%
+13. Marker ID: 85  , Average Detection Rate: 99.85%
+14. Marker ID: 136 , Average Detection Rate: 99.64%
+15. Marker ID: 140 , Average Detection Rate: 99.60%
+16. Marker ID: 41  , Average Detection Rate: 99.29%
+17. Marker ID: 62  , Average Detection Rate: 99.18%
+18. Marker ID: 69  , Average Detection Rate: 98.37%
+19. Marker ID: 142 , Average Detection Rate: 97.50%
+20. Marker ID: 49  , Average Detection Rate: 95.56%
+21. Marker ID: 129 , Average Detection Rate: 95.23%
+22. Marker ID: 87  , Average Detection Rate: 93.78%
+23. Marker ID: 50  , Average Detection Rate: 91.41%
+24. Marker ID: 121 , Average Detection Rate: 90.96%
+25. Marker ID: 63  , Average Detection Rate: 90.72%
+26. Marker ID: 52  , Average Detection Rate: 87.13%
+27. Marker ID: 131 , Average Detection Rate: 85.08%
+
+## Marker_size = 10 мм. Detection Rate. Camera High = 460 мм
 
 1. Marker ID: 112 , Average Detection Rate: 100.00%
 2. Marker ID: 10  , Average Detection Rate: 100.00%
@@ -58,7 +118,7 @@
 26. Marker ID: 63  , Average Detection Rate: 80.18%
 27. Marker ID: 52  , Average Detection Rate: 79.21%
 
-## Marker_size = 9 мм. Detection Rate. High = 510 мм
+## Detection Rate. Camera High = 510 мм
 
 1. Marker ID: 23  , Average Detection Rate: 100.00%
 2. Marker ID: 10  , Average Detection Rate: 100.00%
@@ -88,7 +148,7 @@
 26. Marker ID: 52  , Average Detection Rate: 79.73%
 27. Marker ID: 131 , Average Detection Rate: 69.97%
 
-## Marker_size = 8 мм. Detection Rate. High = 560 мм
+## Detection Rate. Camera High = 560 мм
 
 1. Marker ID: 110 , Average Detection Rate: 100.00%
 2. Marker ID: 17  , Average Detection Rate: 99.94%
@@ -118,7 +178,7 @@
 26. Marker ID: 52  , Average Detection Rate: 77.40%
 27. Marker ID: 50  , Average Detection Rate: 75.53%
 
-## Marker_size = 7.5 мм. Detection Rate. High = 610 мм
+## Detection Rate. Camera High = 610 мм
 
 1. Marker ID: 17  , Average Detection Rate: 100.00%
 2. Marker ID: 85  , Average Detection Rate: 100.00%
@@ -148,7 +208,7 @@
 26. Marker ID: 131 , Average Detection Rate: 86.95%
 27. Marker ID: 52  , Average Detection Rate: 85.79%
 
-## Marker_size = 7 мм. Detection Rate. High = 660 мм
+## Detection Rate. Camera High = 660 мм
 
 1. Marker ID: 85  , Average Detection Rate: 99.45%
 2. Marker ID: 115 , Average Detection Rate: 99.42%
@@ -178,7 +238,7 @@
 26. Marker ID: 52  , Average Detection Rate: 81.83%
 27. Marker ID: 63  , Average Detection Rate: 78.35%
 
-## Marker_size = 6.5 мм. Detection Rate. High = 710 мм
+## Detection Rate. Camera High = 710 мм
 
 1. Marker ID: 17  , Average Detection Rate: 99.88%
 2. Marker ID: 140 , Average Detection Rate: 99.79%
@@ -208,7 +268,7 @@
 26. Marker ID: 52  , Average Detection Rate: 65.58%
 27. Marker ID: 63  , Average Detection Rate: 60.98%
 
-## Marker_size = 6 мм. Detection Rate. High = 760 мм
+## Detection Rate. Camera High = 760 мм
 
 1. Marker ID: 140 , Average Detection Rate: 96.65%
 2. Marker ID: 10  , Average Detection Rate: 96.06%

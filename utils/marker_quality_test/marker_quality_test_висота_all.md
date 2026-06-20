@@ -1,3 +1,9 @@
+# Результати серії експериментів з визначення Detection Rate для ArUco-маркерів для різної відстані камери від маркерів:
+1) розмір маркеру = 10 мм.
+2) 27 маркерів, які згруповано у три групи по 9 маркерів
+
+Проведи аналіз результатів експериментів.
+
 ## Detection Rate. Camera High = 360 мм
 
 1. Marker ID: 112 , Average Detection Rate: 100.00%
@@ -88,7 +94,7 @@
 26. Marker ID: 52  , Average Detection Rate: 87.13%
 27. Marker ID: 131 , Average Detection Rate: 85.08%
 
-## Marker_size = 10 мм. Detection Rate. Camera High = 460 мм
+## Detection Rate. Camera High = 460 мм
 
 1. Marker ID: 112 , Average Detection Rate: 100.00%
 2. Marker ID: 10  , Average Detection Rate: 100.00%

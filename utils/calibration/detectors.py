@@ -42,21 +42,27 @@ def find_charuco_corners(gray_image, charuco_board, dictionary):
     """
     Finds ChArUco corners in a grayscale image.
     """
-    aruco_params = aruco.DetectorParameters()
-    marker_corners, marker_ids, _ = aruco.detectMarkers(
-        gray_image,
-        dictionary,
-        parameters=aruco_params
-    )
-
-    if marker_ids is not None and len(marker_ids) > 0:
-        retval, charuco_corners, charuco_ids = aruco.interpolateCornersCharuco(
-            marker_corners,
-            marker_ids,
-            gray_image,
-            charuco_board
-        )
+    if hasattr(aruco, "CharucoDetector"):
+        detector = aruco.CharucoDetector(charuco_board)
+        charuco_corners, charuco_ids, _, _ = detector.detectBoard(gray_image)
         if charuco_corners is not None and charuco_ids is not None and len(charuco_corners) > 3:
             return True, charuco_corners, charuco_ids
+    else:
+        aruco_params = aruco.DetectorParameters()
+        marker_corners, marker_ids, _ = aruco.detectMarkers(
+            gray_image,
+            dictionary,
+            parameters=aruco_params
+        )
+
+        if marker_ids is not None and len(marker_ids) > 0:
+            retval, charuco_corners, charuco_ids = aruco.interpolateCornersCharuco(
+                marker_corners,
+                marker_ids,
+                gray_image,
+                charuco_board
+            )
+            if charuco_corners is not None and charuco_ids is not None and len(charuco_corners) > 3:
+                return True, charuco_corners, charuco_ids
             
     return False, None, None

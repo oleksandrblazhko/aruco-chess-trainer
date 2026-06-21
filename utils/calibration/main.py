@@ -21,14 +21,22 @@ from .ui import (
 )
 from .quality_analyzer import QualityAnalyzer
 
-def get_charuco_board():
+try:
+    import winsound
+    def play_beep():
+        winsound.Beep(1000, 200)
+except ImportError:
+    def play_beep():
+        print("\a", end="", flush=True)
+
+def get_charuco_board(args):
     dictionary = aruco.getPredefinedDictionary(
-        getattr(aruco, config.CHARUCO_DICT_NAME)
+        getattr(aruco, args.dict)
     )
     return aruco.CharucoBoard(
-        (config.CHARUCO_SQUARES_X, config.CHARUCO_SQUARES_Y),
-        config.CHARUCO_SQUARE_SIZE_M,
-        config.CHARUCO_MARKER_SIZE_M,
+        (args.board_width, args.board_height),
+        args.square_size,
+        args.marker_size,
         dictionary
     )
 
@@ -43,17 +51,17 @@ def main():
 
     board_type = args.board
     if board_type == 'charuco':
-        board = get_charuco_board()
+        board = get_charuco_board(args)
         collector = SampleCollector()
         status_text = "No ChArUco board"
         print("=== Camera Calibration with ChArUco board ===")
-        print(f"Board: {config.CHARUCO_SQUARES_X}x{config.CHARUCO_SQUARES_Y}")
+        print(f"Board: {args.board_width}x{args.board_height}")
     else:
         board = None
-        collector = SampleCollector(config.CHESSBOARD_SIZE, config.SQUARE_SIZE_M)
+        collector = SampleCollector((args.board_width, args.board_height), args.square_size)
         status_text = "No chessboard"
         print("=== Camera Calibration with Chessboard ===")
-        print(f"Chessboard: {config.CHESSBOARD_SIZE[0]}x{config.CHESSBOARD_SIZE[1]}")
+        print(f"Chessboard: {args.board_width}x{args.board_height}")
 
     analyzer = QualityAnalyzer(args.width, args.height)
     
@@ -81,21 +89,23 @@ def main():
         if board_type == 'charuco':
             found, corners, charuco_ids = find_charuco_corners(gray, board, board.getDictionary())
             if found:
-                draw_corners(frame, (config.CHARUCO_SQUARES_X, config.CHARUCO_SQUARES_Y), corners, found)
+                draw_corners(frame, (args.board_width, args.board_height), corners, found)
                 captured, status_text = collector.add_sample(
                     corners, config.MIN_CENTER_SHIFT, config.CAPTURE_DELAY, charuco_ids=charuco_ids
                 )
                 if captured:
                     analyzer.add_sample(corners)
+                    play_beep()
         else:
-            found, corners = find_chessboard_corners(gray, config.CHESSBOARD_SIZE)
+            found, corners = find_chessboard_corners(gray, (args.board_width, args.board_height))
             if found:
-                draw_corners(frame, config.CHESSBOARD_SIZE, corners, found)
+                draw_corners(frame, (args.board_width, args.board_height), corners, found)
                 captured, status_text = collector.add_sample(
                     corners, config.MIN_CENTER_SHIFT, config.CAPTURE_DELAY
                 )
                 if captured:
                     analyzer.add_sample(corners)
+                    play_beep()
 
         if not found:
             status_text = f"No {board_type}"
@@ -168,6 +178,8 @@ def main():
             objpoints, imgpoints, rvecs, tvecs, mtx, dist
         )
         analyzer.generate_report(reprojection_error)
+    else:
+        analyzer.generate_report(rms)
 
     save_calibration_data(args.file, mtx, dist)
     print(f"\nSaved: {args.file}")

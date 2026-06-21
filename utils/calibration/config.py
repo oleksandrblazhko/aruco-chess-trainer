@@ -63,6 +63,41 @@ def get_args():
     )
 
     parser.add_argument(
+        "--board-width",
+        type=int,
+        default=CHESSBOARD_SIZE[0],
+        help="Number of squares / corners horizontally"
+    )
+
+    parser.add_argument(
+        "--board-height",
+        type=int,
+        default=CHESSBOARD_SIZE[1],
+        help="Number of squares / corners vertically"
+    )
+
+    parser.add_argument(
+        "--square-size",
+        type=float,
+        default=SQUARE_SIZE_M,
+        help="Size of square in meters"
+    )
+
+    parser.add_argument(
+        "--marker-size",
+        type=float,
+        default=CHARUCO_MARKER_SIZE_M,
+        help="Size of ChArUco markers in meters"
+    )
+
+    parser.add_argument(
+        "--dict",
+        type=str,
+        default=CHARUCO_DICT_NAME,
+        help="ArUco dictionary name for ChArUco board"
+    )
+
+    parser.add_argument(
         "--samples",
         type=int,
         default=DEFAULT_SAMPLES_NEEDED,

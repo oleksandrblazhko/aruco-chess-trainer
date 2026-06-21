@@ -1,8 +1,10 @@
 import cv2
+import sys
 
 class CameraManager:
     def __init__(self, cam_index, width, height):
-        self.cap = cv2.VideoCapture(cam_index, cv2.CAP_DSHOW)
+        backend = cv2.CAP_DSHOW if sys.platform.startswith("win") else cv2.CAP_ANY
+        self.cap = cv2.VideoCapture(cam_index, backend)
         if not self.cap.isOpened():
             raise IOError(f"Cannot open camera {cam_index}")
 

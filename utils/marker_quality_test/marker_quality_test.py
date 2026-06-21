@@ -5,7 +5,13 @@ import os
 import json
 import argparse
 from collections import defaultdict
-import winsound
+try:
+    import winsound
+    def play_beep():
+        winsound.Beep(700, 500)
+except ImportError:
+    def play_beep():
+        print("\a", end="", flush=True)
 
 # --- Constants ---
 CAM_INDEX = 0
@@ -16,9 +22,41 @@ ARUCO_PARAMS = cv2.aruco.DetectorParameters()
 # Build path to camera calibration file relative to this script's location
 script_dir = os.path.dirname(os.path.abspath(__file__))
 server_dir = os.path.dirname(script_dir) # Go up one level from utils
-CAMERA_CALIBRATION_FILE = os.path.join(server_dir, 'aruco_server', 'camera_ext.json')
+CAMERA_CALIBRATION_FILE = os.path.join(server_dir, '../aruco_server', 'camera_ext.json')
 OUTPUT_JSON_FILE = os.path.join(script_dir, 'marker_test.json') # Save JSON in the same dir as script
 MARKER_ANALYSIS_FILE = os.path.join(script_dir, 'marker_quality_test.md') # Save analysis results to a markdown file
+
+# --- OpenCV compatibility wrapper ---
+if hasattr(cv2.aruco, "ArucoDetector"):
+    ARUCO_DETECTOR = cv2.aruco.ArucoDetector(ARUCO_DICTIONARY, ARUCO_PARAMS)
+    def detect_markers(gray):
+        corners, ids, _ = ARUCO_DETECTOR.detectMarkers(gray)
+        return corners, ids
+else:
+    def detect_markers(gray):
+        corners, ids, _ = cv2.aruco.detectMarkers(gray, ARUCO_DICTIONARY, parameters=ARUCO_PARAMS)
+        return corners, ids
+
+def estimate_pose_single_markers(corners, marker_size, camera_matrix, dist_coeffs):
+    if hasattr(cv2.aruco, "estimatePoseSingleMarkers"):
+        return cv2.aruco.estimatePoseSingleMarkers(corners, marker_size, camera_matrix, dist_coeffs)
+    else:
+        # Fallback for newer OpenCV versions using solvePnP
+        half_size = marker_size / 2.0
+        obj_points = np.array([
+            [-half_size,  half_size, 0],
+            [ half_size,  half_size, 0],
+            [ half_size, -half_size, 0],
+            [-half_size, -half_size, 0]
+        ], dtype=np.float32)
+        
+        rvecs = []
+        tvecs = []
+        for c in corners:
+            _, rvec, tvec = cv2.solvePnP(obj_points, c.reshape((4, 2)), camera_matrix, dist_coeffs, flags=cv2.SOLVEPNP_ITERATIVE)
+            rvecs.append(rvec.reshape((1, 3)))
+            tvecs.append(tvec.reshape((1, 3)))
+        return np.array(rvecs), np.array(tvecs), None
 
 # --- Main Functions ---
 
@@ -58,10 +96,10 @@ def record_marker_data(cap, camera_matrix, dist_coeffs, test_duration_s):
         
         total_frames += 1
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-        corners, ids, _ = cv2.aruco.detectMarkers(gray, ARUCO_DICTIONARY, parameters=ARUCO_PARAMS)
+        corners, ids = detect_markers(gray)
 
         if ids is not None:
-            rvecs, tvecs, _ = cv2.aruco.estimatePoseSingleMarkers(corners, MARKER_SIZE_M, camera_matrix, dist_coeffs)
+            rvecs, tvecs, _ = estimate_pose_single_markers(corners, MARKER_SIZE_M, camera_matrix, dist_coeffs)
 
             for i, marker_id in enumerate(ids.flatten()):
                 marker_data[marker_id]['tvecs'].append(tvecs[i].flatten())
@@ -145,13 +183,15 @@ def main():
         print("        " + "="*50)
         print(f"Підготуйте групу маркерів #{group_num} (9 маркерів).")
         
+        skip_group = False
         for loc_key, loc_desc in locations.items():
-            if quit_test: break
+            if quit_test or skip_group: break
             
             for angle in angles:
+                if quit_test or skip_group: break
                 print("\r\n" + "-"*50)
                 print(f"РОЗТАШУВАННЯ: Група #{group_num} - {loc_desc} (кут: {angle}°)")
-                winsound.Beep(700, 500)
+                play_beep()
 
                 # --- Preview Loop ---
                 while True:
@@ -162,11 +202,11 @@ def main():
 
                     # --- Add Axis Visualization ---
                     gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-                    corners, ids, _ = cv2.aruco.detectMarkers(gray, ARUCO_DICTIONARY, parameters=ARUCO_PARAMS)
+                    corners, ids = detect_markers(gray)
                     
                     if ids is not None:
                         cv2.aruco.drawDetectedMarkers(frame, corners, ids)
-                        rvecs, tvecs, _ = cv2.aruco.estimatePoseSingleMarkers(corners, MARKER_SIZE_M, camera_matrix, dist_coeffs)
+                        rvecs, tvecs, _ = estimate_pose_single_markers(corners, MARKER_SIZE_M, camera_matrix, dist_coeffs)
                         for i in range(len(ids)):
                             cv2.drawFrameAxes(frame, camera_matrix, dist_coeffs, rvecs[i], tvecs[i], 0.01)
                     
@@ -185,11 +225,10 @@ def main():
                         break
                     if key == ord('s'):
                         # This will break the inner loops and continue to the next group
-                        loc_key = "skip" 
+                        skip_group = True 
                         break
                 
-                if quit_test: break
-                if loc_key == "skip": break
+                if quit_test or skip_group: break
 
                 # --- Recording and Calculation ---
                 marker_data, total_frames = record_marker_data(cap, camera_matrix, dist_coeffs, args.duration)
@@ -225,7 +264,7 @@ def main():
         with open(MARKER_ANALYSIS_FILE, 'w', encoding='utf-8') as md_file:
             def print_and_write(text=""):
                 print(text)
-                md_file.write(text + "\r\n")
+                md_file.write(text + "\n")
 
             print_and_write("# ArUco Marker Quality Analysis Report")
             print_and_write(f"Date: {time.strftime('%Y-%m-%d %H:%M:%S')}")

@@ -1,0 +1,361 @@
+python marker_quality_test.py --num-groups 1 --duration 3
+INFO: Camera calibration loaded from a file.
+        ==================================================
+Підготуйте групу маркерів #1 (9 маркерів).
+
+--------------------------------------------------
+РОЗТАШУВАННЯ: Група #1 - у центрі перед камерою (кут: 0°)
+Recording data for 3 seconds...
+
+RESULTS for Group 1, Location 'center', Angle 0°:
+  - Marker ID: 10, RSS Noise: 1.0510, Detection Rate: 100.00%
+  - Marker ID: 140, RSS Noise: 2.7033, Detection Rate: 100.00%
+  - Marker ID: 23, RSS Noise: 2.2037, Detection Rate: 100.00%
+  - Marker ID: 136, RSS Noise: 1.5092, Detection Rate: 100.00%
+  - Marker ID: 112, RSS Noise: 2.8250, Detection Rate: 100.00%
+  - Marker ID: 30, RSS Noise: 1.2584, Detection Rate: 100.00%
+  - Marker ID: 118, RSS Noise: 0.6348, Detection Rate: 100.00%
+  - Marker ID: 115, RSS Noise: 2.8547, Detection Rate: 100.00%
+  - Marker ID: 80, RSS Noise: 2.5148, Detection Rate: 100.00%
+WARNING: Not enough data for marker 190 (< 2 detections). Skipping.
+
+--------------------------------------------------
+РОЗТАШУВАННЯ: Група #1 - у центрі перед камерою (кут: 90°)
+Recording data for 3 seconds...
+
+RESULTS for Group 1, Location 'center', Angle 90°:
+  - Marker ID: 10, RSS Noise: 0.8765, Detection Rate: 100.00%
+  - Marker ID: 112, RSS Noise: 2.5088, Detection Rate: 100.00%
+  - Marker ID: 80, RSS Noise: 2.9854, Detection Rate: 100.00%
+  - Marker ID: 136, RSS Noise: 3.0523, Detection Rate: 97.98%
+  - Marker ID: 115, RSS Noise: 2.7466, Detection Rate: 100.00%
+  - Marker ID: 30, RSS Noise: 2.7667, Detection Rate: 100.00%
+  - Marker ID: 23, RSS Noise: 2.9532, Detection Rate: 100.00%
+  - Marker ID: 118, RSS Noise: 0.5986, Detection Rate: 100.00%
+  - Marker ID: 140, RSS Noise: 0.0639, Detection Rate: 100.00%
+
+--------------------------------------------------
+РОЗТАШУВАННЯ: Група #1 - у центрі перед камерою (кут: 180°)
+Recording data for 3 seconds...
+
+RESULTS for Group 1, Location 'center', Angle 180°:
+  - Marker ID: 10, RSS Noise: 2.9828, Detection Rate: 100.00%
+  - Marker ID: 140, RSS Noise: 0.6469, Detection Rate: 94.95%
+  - Marker ID: 23, RSS Noise: 2.6332, Detection Rate: 100.00%
+  - Marker ID: 80, RSS Noise: 2.9862, Detection Rate: 54.55%
+  - Marker ID: 30, RSS Noise: 0.1433, Detection Rate: 100.00%
+  - Marker ID: 136, RSS Noise: 3.2262, Detection Rate: 100.00%
+  - Marker ID: 115, RSS Noise: 0.1028, Detection Rate: 100.00%
+  - Marker ID: 112, RSS Noise: 1.3332, Detection Rate: 100.00%
+  - Marker ID: 118, RSS Noise: 0.6052, Detection Rate: 100.00%
+
+--------------------------------------------------
+РОЗТАШУВАННЯ: Група #1 - у центрі перед камерою (кут: 270°)
+Recording data for 3 seconds...
+
+RESULTS for Group 1, Location 'center', Angle 270°:
+  - Marker ID: 136, RSS Noise: 0.6200, Detection Rate: 100.00%
+  - Marker ID: 30, RSS Noise: 2.2961, Detection Rate: 100.00%
+  - Marker ID: 115, RSS Noise: 1.4397, Detection Rate: 100.00%
+  - Marker ID: 118, RSS Noise: 0.0684, Detection Rate: 100.00%
+  - Marker ID: 140, RSS Noise: 3.0370, Detection Rate: 100.00%
+  - Marker ID: 80, RSS Noise: 2.1433, Detection Rate: 100.00%
+  - Marker ID: 10, RSS Noise: 1.3626, Detection Rate: 100.00%
+  - Marker ID: 23, RSS Noise: 0.0942, Detection Rate: 100.00%
+  - Marker ID: 112, RSS Noise: 1.3555, Detection Rate: 100.00%
+
+--------------------------------------------------
+РОЗТАШУВАННЯ: Група #1 - зверху від камери (кут: 0°)
+Recording data for 3 seconds...
+
+RESULTS for Group 1, Location 'top', Angle 0°:
+  - Marker ID: 118, RSS Noise: 1.7693, Detection Rate: 100.00%
+  - Marker ID: 10, RSS Noise: 0.1910, Detection Rate: 96.97%
+  - Marker ID: 23, RSS Noise: 2.2079, Detection Rate: 100.00%
+  - Marker ID: 140, RSS Noise: 2.7851, Detection Rate: 100.00%
+  - Marker ID: 115, RSS Noise: 0.6388, Detection Rate: 100.00%
+  - Marker ID: 80, RSS Noise: 0.0000, Detection Rate: 100.00%
+  - Marker ID: 112, RSS Noise: 0.0397, Detection Rate: 100.00%
+  - Marker ID: 136, RSS Noise: 2.9688, Detection Rate: 100.00%
+  - Marker ID: 30, RSS Noise: 2.9234, Detection Rate: 100.00%
+  - Marker ID: 190, RSS Noise: 0.0000, Detection Rate: 2.02%
+
+--------------------------------------------------
+РОЗТАШУВАННЯ: Група #1 - зверху від камери (кут: 90°)
+Recording data for 3 seconds...
+
+RESULTS for Group 1, Location 'top', Angle 90°:
+  - Marker ID: 118, RSS Noise: 0.0875, Detection Rate: 100.00%
+  - Marker ID: 136, RSS Noise: 0.6032, Detection Rate: 100.00%
+  - Marker ID: 140, RSS Noise: 3.0887, Detection Rate: 100.00%
+  - Marker ID: 115, RSS Noise: 3.0810, Detection Rate: 100.00%
+  - Marker ID: 112, RSS Noise: 3.1674, Detection Rate: 100.00%
+  - Marker ID: 23, RSS Noise: 2.7968, Detection Rate: 100.00%
+  - Marker ID: 30, RSS Noise: 1.7636, Detection Rate: 100.00%
+  - Marker ID: 10, RSS Noise: 2.1633, Detection Rate: 100.00%
+  - Marker ID: 80, RSS Noise: 2.9272, Detection Rate: 100.00%
+
+--------------------------------------------------
+РОЗТАШУВАННЯ: Група #1 - зверху від камери (кут: 180°)
+Recording data for 3 seconds...
+
+RESULTS for Group 1, Location 'top', Angle 180°:
+  - Marker ID: 10, RSS Noise: 2.9033, Detection Rate: 100.00%
+  - Marker ID: 112, RSS Noise: 0.5795, Detection Rate: 100.00%
+  - Marker ID: 115, RSS Noise: 0.8516, Detection Rate: 100.00%
+  - Marker ID: 118, RSS Noise: 1.3389, Detection Rate: 100.00%
+  - Marker ID: 23, RSS Noise: 2.2924, Detection Rate: 100.00%
+  - Marker ID: 136, RSS Noise: 2.4920, Detection Rate: 98.99%
+  - Marker ID: 30, RSS Noise: 1.7748, Detection Rate: 100.00%
+  - Marker ID: 140, RSS Noise: 0.6154, Detection Rate: 100.00%
+  - Marker ID: 80, RSS Noise: 2.9925, Detection Rate: 100.00%
+
+--------------------------------------------------
+РОЗТАШУВАННЯ: Група #1 - зверху від камери (кут: 270°)
+Recording data for 3 seconds...
+
+RESULTS for Group 1, Location 'top', Angle 270°:
+  - Marker ID: 136, RSS Noise: 1.3506, Detection Rate: 98.98%
+  - Marker ID: 10, RSS Noise: 1.4587, Detection Rate: 100.00%
+  - Marker ID: 80, RSS Noise: 2.6124, Detection Rate: 100.00%
+  - Marker ID: 30, RSS Noise: 2.1737, Detection Rate: 100.00%
+  - Marker ID: 140, RSS Noise: 1.0931, Detection Rate: 100.00%
+  - Marker ID: 115, RSS Noise: 2.0746, Detection Rate: 100.00%
+  - Marker ID: 112, RSS Noise: 1.0205, Detection Rate: 100.00%
+  - Marker ID: 118, RSS Noise: 0.7416, Detection Rate: 100.00%
+  - Marker ID: 23, RSS Noise: 0.2280, Detection Rate: 100.00%
+
+--------------------------------------------------
+РОЗТАШУВАННЯ: Група #1 - знизу від камери із разворотом на 180 градусів (кут: 0°)
+Recording data for 3 seconds...
+
+RESULTS for Group 1, Location 'bottom', Angle 0°:
+  - Marker ID: 118, RSS Noise: 2.1026, Detection Rate: 100.00%
+  - Marker ID: 140, RSS Noise: 3.0551, Detection Rate: 100.00%
+  - Marker ID: 23, RSS Noise: 2.7932, Detection Rate: 100.00%
+  - Marker ID: 112, RSS Noise: 2.3204, Detection Rate: 98.99%
+  - Marker ID: 10, RSS Noise: 2.9506, Detection Rate: 100.00%
+  - Marker ID: 136, RSS Noise: 2.4206, Detection Rate: 100.00%
+  - Marker ID: 80, RSS Noise: 3.0438, Detection Rate: 100.00%
+  - Marker ID: 30, RSS Noise: 1.0845, Detection Rate: 100.00%
+  - Marker ID: 115, RSS Noise: 2.3217, Detection Rate: 100.00%
+
+--------------------------------------------------
+РОЗТАШУВАННЯ: Група #1 - знизу від камери із разворотом на 180 градусів (кут: 90°)
+Recording data for 3 seconds...
+
+RESULTS for Group 1, Location 'bottom', Angle 90°:
+  - Marker ID: 118, RSS Noise: 2.0831, Detection Rate: 100.00%
+  - Marker ID: 10, RSS Noise: 0.1855, Detection Rate: 100.00%
+  - Marker ID: 136, RSS Noise: 0.3128, Detection Rate: 100.00%
+  - Marker ID: 30, RSS Noise: 1.9354, Detection Rate: 100.00%
+  - Marker ID: 115, RSS Noise: 2.3836, Detection Rate: 100.00%
+  - Marker ID: 140, RSS Noise: 1.8839, Detection Rate: 100.00%
+  - Marker ID: 112, RSS Noise: 3.0374, Detection Rate: 100.00%
+  - Marker ID: 23, RSS Noise: 2.2143, Detection Rate: 100.00%
+  - Marker ID: 80, RSS Noise: 0.6087, Detection Rate: 100.00%
+
+--------------------------------------------------
+РОЗТАШУВАННЯ: Група #1 - знизу від камери із разворотом на 180 градусів (кут: 180°)
+Recording data for 3 seconds...
+
+RESULTS for Group 1, Location 'bottom', Angle 180°:
+  - Marker ID: 115, RSS Noise: 2.4324, Detection Rate: 100.00%
+  - Marker ID: 10, RSS Noise: 1.3755, Detection Rate: 100.00%
+  - Marker ID: 140, RSS Noise: 0.1468, Detection Rate: 100.00%
+  - Marker ID: 136, RSS Noise: 0.0000, Detection Rate: 100.00%
+  - Marker ID: 23, RSS Noise: 3.1670, Detection Rate: 100.00%
+  - Marker ID: 118, RSS Noise: 2.9698, Detection Rate: 100.00%
+  - Marker ID: 112, RSS Noise: 0.8184, Detection Rate: 100.00%
+  - Marker ID: 80, RSS Noise: 1.6906, Detection Rate: 100.00%
+  - Marker ID: 30, RSS Noise: 1.0019, Detection Rate: 100.00%
+
+--------------------------------------------------
+РОЗТАШУВАННЯ: Група #1 - знизу від камери із разворотом на 180 градусів (кут: 270°)
+Recording data for 3 seconds...
+
+RESULTS for Group 1, Location 'bottom', Angle 270°:
+  - Marker ID: 140, RSS Noise: 2.6168, Detection Rate: 100.00%
+  - Marker ID: 10, RSS Noise: 3.1225, Detection Rate: 100.00%
+  - Marker ID: 112, RSS Noise: 1.7856, Detection Rate: 100.00%
+  - Marker ID: 30, RSS Noise: 1.2506, Detection Rate: 100.00%
+  - Marker ID: 136, RSS Noise: 0.0201, Detection Rate: 100.00%
+  - Marker ID: 80, RSS Noise: 1.6633, Detection Rate: 100.00%
+  - Marker ID: 118, RSS Noise: 0.0383, Detection Rate: 100.00%
+  - Marker ID: 115, RSS Noise: 2.7893, Detection Rate: 100.00%
+  - Marker ID: 23, RSS Noise: 0.0495, Detection Rate: 100.00%
+
+--------------------------------------------------
+РОЗТАШУВАННЯ: Група #1 - зліва від камери (кут: 0°)
+Recording data for 3 seconds...
+
+RESULTS for Group 1, Location 'left', Angle 0°:
+  - Marker ID: 140, RSS Noise: 2.4337, Detection Rate: 100.00%
+  - Marker ID: 30, RSS Noise: 2.6857, Detection Rate: 100.00%
+  - Marker ID: 115, RSS Noise: 1.7942, Detection Rate: 100.00%
+  - Marker ID: 10, RSS Noise: 0.0361, Detection Rate: 100.00%
+  - Marker ID: 136, RSS Noise: 0.7863, Detection Rate: 100.00%
+  - Marker ID: 23, RSS Noise: 2.7303, Detection Rate: 100.00%
+  - Marker ID: 80, RSS Noise: 2.7953, Detection Rate: 100.00%
+  - Marker ID: 118, RSS Noise: 2.9023, Detection Rate: 100.00%
+  - Marker ID: 112, RSS Noise: 0.6037, Detection Rate: 100.00%
+
+--------------------------------------------------
+РОЗТАШУВАННЯ: Група #1 - зліва від камери (кут: 90°)
+Recording data for 3 seconds...
+
+RESULTS for Group 1, Location 'left', Angle 90°:
+  - Marker ID: 140, RSS Noise: 2.5936, Detection Rate: 100.00%
+  - Marker ID: 10, RSS Noise: 3.0392, Detection Rate: 100.00%
+  - Marker ID: 112, RSS Noise: 0.3587, Detection Rate: 100.00%
+  - Marker ID: 80, RSS Noise: 0.6153, Detection Rate: 100.00%
+  - Marker ID: 136, RSS Noise: 0.0000, Detection Rate: 100.00%
+  - Marker ID: 30, RSS Noise: 0.0518, Detection Rate: 100.00%
+  - Marker ID: 23, RSS Noise: 0.0000, Detection Rate: 100.00%
+  - Marker ID: 115, RSS Noise: 2.4372, Detection Rate: 100.00%
+  - Marker ID: 118, RSS Noise: 0.0533, Detection Rate: 100.00%
+
+--------------------------------------------------
+РОЗТАШУВАННЯ: Група #1 - зліва від камери (кут: 180°)
+Recording data for 3 seconds...
+
+RESULTS for Group 1, Location 'left', Angle 180°:
+  - Marker ID: 118, RSS Noise: 0.8744, Detection Rate: 100.00%
+  - Marker ID: 10, RSS Noise: 2.9553, Detection Rate: 100.00%
+  - Marker ID: 115, RSS Noise: 0.0256, Detection Rate: 100.00%
+  - Marker ID: 136, RSS Noise: 0.2914, Detection Rate: 100.00%
+  - Marker ID: 112, RSS Noise: 0.2220, Detection Rate: 100.00%
+  - Marker ID: 30, RSS Noise: 0.0238, Detection Rate: 100.00%
+  - Marker ID: 23, RSS Noise: 2.1610, Detection Rate: 100.00%
+  - Marker ID: 80, RSS Noise: 2.2368, Detection Rate: 100.00%
+  - Marker ID: 140, RSS Noise: 0.2012, Detection Rate: 100.00%
+
+--------------------------------------------------
+РОЗТАШУВАННЯ: Група #1 - зліва від камери (кут: 270°)
+Recording data for 3 seconds...
+
+RESULTS for Group 1, Location 'left', Angle 270°:
+  - Marker ID: 136, RSS Noise: 2.1890, Detection Rate: 100.00%
+  - Marker ID: 80, RSS Noise: 0.1271, Detection Rate: 100.00%
+  - Marker ID: 115, RSS Noise: 2.0307, Detection Rate: 100.00%
+  - Marker ID: 30, RSS Noise: 0.0000, Detection Rate: 100.00%
+  - Marker ID: 23, RSS Noise: 0.1181, Detection Rate: 100.00%
+  - Marker ID: 140, RSS Noise: 2.2466, Detection Rate: 100.00%
+  - Marker ID: 10, RSS Noise: 3.0293, Detection Rate: 100.00%
+  - Marker ID: 112, RSS Noise: 0.1817, Detection Rate: 100.00%
+  - Marker ID: 118, RSS Noise: 0.6569, Detection Rate: 100.00%
+  - Marker ID: 190, RSS Noise: 0.0000, Detection Rate: 3.03%
+
+--------------------------------------------------
+РОЗТАШУВАННЯ: Група #1 - зправа від камери із разворотом на 90 градусів вправо (кут: 0°)
+Recording data for 3 seconds...
+
+RESULTS for Group 1, Location 'right', Angle 0°:
+  - Marker ID: 30, RSS Noise: 1.9426, Detection Rate: 98.99%
+  - Marker ID: 80, RSS Noise: 2.6064, Detection Rate: 100.00%
+  - Marker ID: 10, RSS Noise: 2.9650, Detection Rate: 100.00%
+  - Marker ID: 118, RSS Noise: 2.2826, Detection Rate: 100.00%
+  - Marker ID: 136, RSS Noise: 0.9400, Detection Rate: 43.43%
+  - Marker ID: 115, RSS Noise: 0.0691, Detection Rate: 98.99%
+  - Marker ID: 23, RSS Noise: 3.0300, Detection Rate: 100.00%
+  - Marker ID: 140, RSS Noise: 2.1702, Detection Rate: 100.00%
+  - Marker ID: 112, RSS Noise: 2.0354, Detection Rate: 100.00%
+
+--------------------------------------------------
+РОЗТАШУВАННЯ: Група #1 - зправа від камери із разворотом на 90 градусів вправо (кут: 90°)
+Recording data for 3 seconds...
+
+RESULTS for Group 1, Location 'right', Angle 90°:
+  - Marker ID: 10, RSS Noise: 2.4064, Detection Rate: 100.00%
+  - Marker ID: 140, RSS Noise: 0.0293, Detection Rate: 100.00%
+  - Marker ID: 112, RSS Noise: 1.3954, Detection Rate: 100.00%
+  - Marker ID: 118, RSS Noise: 2.8438, Detection Rate: 97.96%
+  - Marker ID: 23, RSS Noise: 2.4162, Detection Rate: 100.00%
+  - Marker ID: 30, RSS Noise: 2.8874, Detection Rate: 100.00%
+  - Marker ID: 115, RSS Noise: 2.9585, Detection Rate: 98.98%
+  - Marker ID: 80, RSS Noise: 0.0821, Detection Rate: 100.00%
+  - Marker ID: 136, RSS Noise: 0.7306, Detection Rate: 74.49%
+
+--------------------------------------------------
+РОЗТАШУВАННЯ: Група #1 - зправа від камери із разворотом на 90 градусів вправо (кут: 180°)
+Recording data for 3 seconds...
+
+RESULTS for Group 1, Location 'right', Angle 180°:
+  - Marker ID: 10, RSS Noise: 0.9565, Detection Rate: 100.00%
+  - Marker ID: 112, RSS Noise: 2.6268, Detection Rate: 62.63%
+  - Marker ID: 115, RSS Noise: 2.4244, Detection Rate: 100.00%
+  - Marker ID: 136, RSS Noise: 2.8581, Detection Rate: 90.91%
+  - Marker ID: 140, RSS Noise: 2.7553, Detection Rate: 100.00%
+  - Marker ID: 23, RSS Noise: 3.0965, Detection Rate: 100.00%
+  - Marker ID: 80, RSS Noise: 0.0440, Detection Rate: 100.00%
+  - Marker ID: 118, RSS Noise: 1.2366, Detection Rate: 100.00%
+  - Marker ID: 30, RSS Noise: 2.1096, Detection Rate: 28.28%
+
+--------------------------------------------------
+РОЗТАШУВАННЯ: Група #1 - зправа від камери із разворотом на 90 градусів вправо (кут: 270°)
+Recording data for 3 seconds...
+
+RESULTS for Group 1, Location 'right', Angle 270°:
+  - Marker ID: 10, RSS Noise: 2.1216, Detection Rate: 100.00%
+  - Marker ID: 136, RSS Noise: 2.3562, Detection Rate: 98.99%
+  - Marker ID: 118, RSS Noise: 2.2292, Detection Rate: 96.97%
+  - Marker ID: 115, RSS Noise: 2.2449, Detection Rate: 100.00%
+  - Marker ID: 23, RSS Noise: 1.4814, Detection Rate: 100.00%
+  - Marker ID: 112, RSS Noise: 2.8374, Detection Rate: 96.97%
+  - Marker ID: 30, RSS Noise: 0.6301, Detection Rate: 100.00%
+  - Marker ID: 80, RSS Noise: 2.9085, Detection Rate: 100.00%
+  - Marker ID: 140, RSS Noise: 3.0435, Detection Rate: 98.99%
+
+Saving results to C:\Users\User\Yoga\arucotui_test\utils\marker_quality_test\marker_test.json...
+Done.
+
+Generating analysis report to C:\Users\User\Yoga\arucotui_test\utils\marker_quality_test\marker_quality_test.md...
+# ArUco Marker Quality Analysis Report
+Date: 2026-06-21 16:29:00
+Marker Size: 0.012 meters
+Test Duration per Setup: 3 seconds
+
+---
+
+## 1. Pose Stability Ranking (Lower Average RSS is Better)
+```
+1. Marker ID: 190 , Average RSS: 0.0000
+2. Marker ID: 118 , Average RSS: 1.3059
+3. Marker ID: 136 , Average RSS: 1.4364
+4. Marker ID: 30  , Average RSS: 1.5352
+5. Marker ID: 112 , Average RSS: 1.5526
+6. Marker ID: 140 , Average RSS: 1.8605
+7. Marker ID: 80  , Average RSS: 1.8792
+8. Marker ID: 115 , Average RSS: 1.8851
+9. Marker ID: 10  , Average RSS: 1.9066
+10. Marker ID: 23  , Average RSS: 1.9333
+```
+
+## 2. Detection Stability Ranking (Higher Average Rate is Better)
+```
+1. Marker ID: 23  , Average Detection Rate: 100.00%
+2. Marker ID: 115 , Average Detection Rate: 99.90%
+3. Marker ID: 10  , Average Detection Rate: 99.85%
+4. Marker ID: 118 , Average Detection Rate: 99.75%
+5. Marker ID: 140 , Average Detection Rate: 99.70%
+6. Marker ID: 112 , Average Detection Rate: 97.93%
+7. Marker ID: 80  , Average Detection Rate: 97.73%
+8. Marker ID: 30  , Average Detection Rate: 96.36%
+9. Marker ID: 136 , Average Detection Rate: 95.19%
+10. Marker ID: 190 , Average Detection Rate: 2.53%
+```
+
+## 3. Quality Stability Ranking (Lower RSS StdDev is Better)
+```
+1. Marker ID: 190 , RSS Std. Dev.: 0.0000
+2. Marker ID: 30  , RSS Std. Dev.: 0.9641
+3. Marker ID: 115 , RSS Std. Dev.: 0.9840
+4. Marker ID: 118 , RSS Std. Dev.: 0.9876
+5. Marker ID: 112 , RSS Std. Dev.: 1.0289
+6. Marker ID: 10  , RSS Std. Dev.: 1.0659
+7. Marker ID: 136 , RSS Std. Dev.: 1.1164
+8. Marker ID: 23  , RSS Std. Dev.: 1.1279
+9. Marker ID: 140 , RSS Std. Dev.: 1.1325
+10. Marker ID: 80  , RSS Std. Dev.: 1.1446
+```
+Done.

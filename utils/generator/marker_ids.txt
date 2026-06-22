@@ -1,0 +1,4 @@
+# Default marker IDs configuration
+# You can use ranges: 0-249
+# Or comma-separated sequences: 0,1,2,3,4
+250-499

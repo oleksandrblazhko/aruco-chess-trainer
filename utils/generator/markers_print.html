@@ -61,7 +61,10 @@
             box-sizing: border-box;
             background-color: white;
             margin: 10px auto 30px auto;
-            padding: 15.0mm;
+			padding-top: 5mm;
+			padding-right: 12mm;
+			padding-bottom: 5mm;
+			padding-left: 12mm;
             box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
             display: flex;
             flex-wrap: wrap;
@@ -75,7 +78,7 @@
             width: 12.7mm;
             height: 12.7mm;
             padding: 1.0mm;
-            border: 0.05mm solid #000000; /* Thin black separation line */
+            border: 0.05mm solid #C0C0C0; /* Thin black separation line */
             margin: -0.025mm; /* Collapse borders to prevent double thickness */
             display: flex;
             justify-content: center;
@@ -111,12 +114,6 @@
     </style>
 </head>
 <body>
-    <div class="header" class="no-print">
-        <h1>ArUco Marker Sheet Generator</h1>
-        <p><strong>Dictionary:</strong> DICT_4X4_1000 | <strong>Marker Size:</strong> 12.7 mm | <strong>White Border:</strong> 1.0 mm</p>
-        <p><strong>Total Markers:</strong> 250 | <strong>Grid:</strong> 12 columns × 18 rows (216 per page) | <strong>Total Pages:</strong> 2</p>
-        <button class="print-btn" onclick="window.print()">Print Sheet</button>
-    </div>
     <div class="page" id="page-1">
         <div class="marker-cell" title="ID: 250">
             <img class="marker-img" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJYAAACWCAAAAAAZai4+AAAB7ElEQVR4Ac3BwQkAMAwDsbv9h04n8COQgiWpJJWkklSSSlJJKkklqSSVpJJUkkpSSSpJJakklaSSVJJKUkkqSSWpJGvDGQlkbTgjgawNZySQteGMBLI2nJFA1oYzEsjacEYCWRvOSCBrwxkJZG04I4GsDWckkLXhjASyNpyRQNaGMxLI2nBGAlkbzkgga8MZCWRtOCOBrA1nJJC14YwEsjackUDWhjMSyNpwRgJZG85IIGvDGQkkGc7IliTDGdmSZDgjW5IMZ2RLkuGMbEkynJEtSYYzsiXJcEa2JBnOyJYkwxnZkmQ4I1uSDGdkS5LhjGxJMpyRLUmGM7IlyXBGtiQZzsiWJMMZ2ZJkOCNbkgxnZEuS4YxsSTKckS1JhjOyJclwRrYkGc7IliRDIP9JMgTynyRDIP9JMgTynyRDIP9JMgTynyRDIP9JMgTynyRDIP9JMgTynyRDIP9JMgTynyRDIP9JMgTynyRDIP9JMgTynyRDIP9JMgTynyRDIP9JMgTynyRDIP9JMgTynyRDIP9JMgTynyRDIP9JJakklaSSVJJKUkkqSSWpJJWkklSSSlJJKkklqSSVpJJUkkpSSSpJJakklaSSVJJKUkkqSSWpJJWkklSSSlJJKkklqSSVpJJUkkpSSSpJJan0AC14S5dQ6cmPAAAAAElFTkSuQmCC" alt="ArUco Marker 250">

@@ -46,5 +46,11 @@ def parse_marker_ids(file_path: str) -> list[int]:
                     except ValueError:
                         print(f"Warning: Skipping invalid token '{token}' in ID configuration file.")
                         
-    # Return unique sorted IDs
-    return sorted(list(set(marker_ids)))
+    # Return unique IDs preserving insertion order
+    seen = set()
+    unique_ids = []
+    for x in marker_ids:
+        if x not in seen:
+            seen.add(x)
+            unique_ids.append(x)
+    return unique_ids

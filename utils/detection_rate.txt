@@ -1,217 +1,72 @@
-1. Marker ID: 13  , Average Detection Rate: 100.00%
-2. Marker ID: 17  , Average Detection Rate: 100.00%
-3. Marker ID: 49  , Average Detection Rate: 100.00%
-4. Marker ID: 62  , Average Detection Rate: 100.00%
-5. Marker ID: 41  , Average Detection Rate: 100.00%
-6. Marker ID: 10  , Average Detection Rate: 99.97%
-7. Marker ID: 23  , Average Detection Rate: 99.97%
-8. Marker ID: 30  , Average Detection Rate: 99.91%
-9. Marker ID: 69  , Average Detection Rate: 99.27%
-10. Marker ID: 50  , Average Detection Rate: 99.27%
-11. Marker ID: 64  , Average Detection Rate: 98.57%
-12. Marker ID: 4   , Average Detection Rate: 98.51%
-13. Marker ID: 48  , Average Detection Rate: 98.38%
-14. Marker ID: 5   , Average Detection Rate: 98.23%
-15. Marker ID: 40  , Average Detection Rate: 97.84%
-16. Marker ID: 21  , Average Detection Rate: 97.80%
-17. Marker ID: 1   , Average Detection Rate: 97.80%
-18. Marker ID: 43  , Average Detection Rate: 97.68%
-19. Marker ID: 63  , Average Detection Rate: 96.62%
-20. Marker ID: 52  , Average Detection Rate: 96.40%
-21. Marker ID: 2   , Average Detection Rate: 95.76%
-22. Marker ID: 37  , Average Detection Rate: 95.61%
-23. Marker ID: 33  , Average Detection Rate: 95.34%
-
-24. Marker ID: 3   , Average Detection Rate: 93.57%
-
-25. Marker ID: 25  , Average Detection Rate: 93.08%
-
-26. Marker ID: 16  , Average Detection Rate: 92.10%
-
-27. Marker ID: 32  , Average Detection Rate: 91.83%
-
-28. Marker ID: 26  , Average Detection Rate: 91.55%
-
-29. Marker ID: 38  , Average Detection Rate: 90.61%
-
-30. Marker ID: 45  , Average Detection Rate: 90.49%
-
-31. Marker ID: 6   , Average Detection Rate: 90.30%
-
-32. Marker ID: 54  , Average Detection Rate: 90.07%
-
-33. Marker ID: 61  , Average Detection Rate: 89.79%
-
-34. Marker ID: 71  , Average Detection Rate: 89.48%
-
-35. Marker ID: 15  , Average Detection Rate: 88.84%
-
-36. Marker ID: 29  , Average Detection Rate: 88.84%
-
-37. Marker ID: 66  , Average Detection Rate: 88.78%
-
-38. Marker ID: 24  , Average Detection Rate: 88.44%
-
-39. Marker ID: 65  , Average Detection Rate: 88.41%
-
-40. Marker ID: 36  , Average Detection Rate: 88.05%
-
-41. Marker ID: 12  , Average Detection Rate: 87.90%
-
-42. Marker ID: 14  , Average Detection Rate: 86.46%
-
-43. Marker ID: 18  , Average Detection Rate: 84.85%
-
-44. Marker ID: 20  , Average Detection Rate: 84.76%
-
-45. Marker ID: 55  , Average Detection Rate: 84.70%
-
-46. Marker ID: 27  , Average Detection Rate: 83.50%
-
-47. Marker ID: 51  , Average Detection Rate: 82.73%
-
-48. Marker ID: 7   , Average Detection Rate: 82.71%
-
-49. Marker ID: 58  , Average Detection Rate: 82.13%
-
-50. Marker ID: 44  , Average Detection Rate: 81.96%
-
-51. Marker ID: 35  , Average Detection Rate: 81.13%
-
-52. Marker ID: 70  , Average Detection Rate: 79.21%
-
-53. Marker ID: 72  , Average Detection Rate: 78.63%
-
-54. Marker ID: 59  , Average Detection Rate: 77.53%
-
-55. Marker ID: 28  , Average Detection Rate: 75.91%
-
-56. Marker ID: 67  , Average Detection Rate: 74.81%
-
-57. Marker ID: 39  , Average Detection Rate: 74.22%
-
-58. Marker ID: 31  , Average Detection Rate: 73.38%
-
-59. Marker ID: 60  , Average Detection Rate: 73.05%
-
-60. Marker ID: 9   , Average Detection Rate: 72.05%
-61. Marker ID: 0   , Average Detection Rate: 71.99%
-62. Marker ID: 11  , Average Detection Rate: 71.52%
-63. Marker ID: 47  , Average Detection Rate: 70.62%
-64. Marker ID: 53  , Average Detection Rate: 70.30%
-65. Marker ID: 8   , Average Detection Rate: 70.09%
-66. Marker ID: 56  , Average Detection Rate: 68.72%
-67. Marker ID: 19  , Average Detection Rate: 67.68%
-68. Marker ID: 68  , Average Detection Rate: 66.77%
-69. Marker ID: 46  , Average Detection Rate: 61.33%
-70. Marker ID: 57  , Average Detection Rate: 59.63%
-1. Marker ID: 85  , Average Detection Rate: 100.00%
-2. Marker ID: 107 , Average Detection Rate: 100.00%
-3. Marker ID: 110 , Average Detection Rate: 100.00%
-4. Marker ID: 126 , Average Detection Rate: 100.00%
-5. Marker ID: 112 , Average Detection Rate: 100.00%
-6. Marker ID: 140 , Average Detection Rate: 100.00%
-7. Marker ID: 118 , Average Detection Rate: 100.00%
-8. Marker ID: 80  , Average Detection Rate: 99.97%
-9. Marker ID: 115 , Average Detection Rate: 99.97%
-10. Marker ID: 136 , Average Detection Rate: 99.94%
-11. Marker ID: 87  , Average Detection Rate: 99.94%
-12. Marker ID: 99  , Average Detection Rate: 99.82%
-13. Marker ID: 121 , Average Detection Rate: 99.36%
-14. Marker ID: 142 , Average Detection Rate: 99.02%
-15. Marker ID: 120 , Average Detection Rate: 98.87%
-16. Marker ID: 108 , Average Detection Rate: 98.84%
-17. Marker ID: 94  , Average Detection Rate: 98.20%
-18. Marker ID: 125 , Average Detection Rate: 98.05%
-19. Marker ID: 127 , Average Detection Rate: 97.87%
-20. Marker ID: 131 , Average Detection Rate: 97.50%
-21. Marker ID: 86  , Average Detection Rate: 97.41%
-22. Marker ID: 129 , Average Detection Rate: 97.23%
-23. Marker ID: 141 , Average Detection Rate: 96.34%
-24. Marker ID: 114 , Average Detection Rate: 96.31%
-25. Marker ID: 139 , Average Detection Rate: 95.85%
-26. Marker ID: 74  , Average Detection Rate: 95.79%
-27. Marker ID: 77  , Average Detection Rate: 95.76%
-28. Marker ID: 98  , Average Detection Rate: 95.49%
-
-29. Marker ID: 138 , Average Detection Rate: 94.09%
-
-30. Marker ID: 132 , Average Detection Rate: 93.99%
-
-31. Marker ID: 113 , Average Detection Rate: 93.72%
-
-32. Marker ID: 76  , Average Detection Rate: 93.66%
-
-33. Marker ID: 130 , Average Detection Rate: 93.45%
-
-34. Marker ID: 109 , Average Detection Rate: 93.45%
-
-35. Marker ID: 102 , Average Detection Rate: 93.36%
-
-36. Marker ID: 82  , Average Detection Rate: 93.11%
-
-37. Marker ID: 97  , Average Detection Rate: 92.99%
-
-38. Marker ID: 90  , Average Detection Rate: 92.87%
-
-39. Marker ID: 111 , Average Detection Rate: 92.65%
-
-40. Marker ID: 103 , Average Detection Rate: 92.41%
-
-41. Marker ID: 75  , Average Detection Rate: 92.23%
-
-42. Marker ID: 93  , Average Detection Rate: 91.34%
-
-43. Marker ID: 106 , Average Detection Rate: 91.25%
-
-44. Marker ID: 91  , Average Detection Rate: 91.13%
-
-45. Marker ID: 83  , Average Detection Rate: 89.21%
-
-46. Marker ID: 123 , Average Detection Rate: 89.18%
-
-47. Marker ID: 89  , Average Detection Rate: 89.15%
-
-48. Marker ID: 116 , Average Detection Rate: 89.13%
-
-49. Marker ID: 96  , Average Detection Rate: 88.81%
-
-50. Marker ID: 128 , Average Detection Rate: 87.23%
-
-51. Marker ID: 73  , Average Detection Rate: 87.13%
-
-52. Marker ID: 95  , Average Detection Rate: 86.80%
-
-53. Marker ID: 119 , Average Detection Rate: 86.68%
-
-54. Marker ID: 134 , Average Detection Rate: 86.43%
-
-55. Marker ID: 78  , Average Detection Rate: 85.73%
-
-56. Marker ID: 104 , Average Detection Rate: 85.46%
-
-57. Marker ID: 122 , Average Detection Rate: 85.40%
-
-58. Marker ID: 81  , Average Detection Rate: 85.18%
-
-59. Marker ID: 88  , Average Detection Rate: 84.66%
-
-60. Marker ID: 79  , Average Detection Rate: 82.68%
-
-61. Marker ID: 101 , Average Detection Rate: 82.64%
-
-62. Marker ID: 124 , Average Detection Rate: 81.10%
-
-63. Marker ID: 100 , Average Detection Rate: 78.69%
-
-64. Marker ID: 84  , Average Detection Rate: 75.21%
-
-65. Marker ID: 144 , Average Detection Rate: 74.39%
-
-66. Marker ID: 92  , Average Detection Rate: 73.88%
-67. Marker ID: 105 , Average Detection Rate: 72.22%
-68. Marker ID: 143 , Average Detection Rate: 70.96%
-69. Marker ID: 133 , Average Detection Rate: 66.82%
-70. Marker ID: 117 , Average Detection Rate: 62.76%
-71. Marker ID: 137 , Average Detection Rate: 58.48%
-72. Marker ID: 135 , Average Detection Rate: 43.76%
+1. Marker ID: 366 , Average Detection Rate: 100.05%
+2. Marker ID: 425 , Average Detection Rate: 100.00%
+3. Marker ID: 336 , Average Detection Rate: 100.00%
+4. Marker ID: 422 , Average Detection Rate: 100.00%
+5. Marker ID: 434 , Average Detection Rate: 100.00%
+6. Marker ID: 327 , Average Detection Rate: 100.00%
+7. Marker ID: 404 , Average Detection Rate: 100.00%
+8. Marker ID: 430 , Average Detection Rate: 100.00%
+9. Marker ID: 411 , Average Detection Rate: 99.95%
+10. Marker ID: 398 , Average Detection Rate: 99.95%
+11. Marker ID: 384 , Average Detection Rate: 99.95%
+12. Marker ID: 495 , Average Detection Rate: 99.90%
+13. Marker ID: 427 , Average Detection Rate: 99.90%
+14. Marker ID: 376 , Average Detection Rate: 99.90%
+15. Marker ID: 431 , Average Detection Rate: 99.85%
+16. Marker ID: 485 , Average Detection Rate: 99.85%
+17. Marker ID: 462 , Average Detection Rate: 99.85%
+18. Marker ID: 375 , Average Detection Rate: 99.75%
+19. Marker ID: 379 , Average Detection Rate: 99.59%
+20. Marker ID: 396 , Average Detection Rate: 99.54%
+21. Marker ID: 470 , Average Detection Rate: 99.44%
+22. Marker ID: 347 , Average Detection Rate: 99.39%
+23. Marker ID: 414 , Average Detection Rate: 99.09%
+24. Marker ID: 269 , Average Detection Rate: 98.53%
+25. Marker ID: 382 , Average Detection Rate: 98.48%
+26. Marker ID: 337 , Average Detection Rate: 97.87%
+27. Marker ID: 389 , Average Detection Rate: 97.86%
+28. Marker ID: 433 , Average Detection Rate: 97.78%
+29. Marker ID: 441 , Average Detection Rate: 97.63%
+30. Marker ID: 393 , Average Detection Rate: 94.48%
+31. Marker ID: 412 , Average Detection Rate: 93.60%
+32. Marker ID: 394 , Average Detection Rate: 93.43%
+33. Marker ID: 319 , Average Detection Rate: 91.40%
+34. Marker ID: 458 , Average Detection Rate: 88.64%
+35. Marker ID: 466 , Average Detection Rate: 88.63%
+36. Marker ID: 459 , Average Detection Rate: 83.85%
+1. Marker ID: 486 , Average Detection Rate: 100.00%
+2. Marker ID: 467 , Average Detection Rate: 100.00%
+3. Marker ID: 371 , Average Detection Rate: 100.00%
+4. Marker ID: 416 , Average Detection Rate: 100.00%
+5. Marker ID: 460 , Average Detection Rate: 100.00%
+6. Marker ID: 387 , Average Detection Rate: 99.90%
+7. Marker ID: 405 , Average Detection Rate: 99.80%
+8. Marker ID: 265 , Average Detection Rate: 99.44%
+9. Marker ID: 465 , Average Detection Rate: 99.19%
+10. Marker ID: 461 , Average Detection Rate: 98.79%
+11. Marker ID: 372 , Average Detection Rate: 98.68%
+12. Marker ID: 373 , Average Detection Rate: 98.62%
+13. Marker ID: 448 , Average Detection Rate: 98.47%
+14. Marker ID: 251 , Average Detection Rate: 98.28%
+15. Marker ID: 429 , Average Detection Rate: 98.10%
+16. Marker ID: 447 , Average Detection Rate: 97.96%
+17. Marker ID: 333 , Average Detection Rate: 97.57%
+18. Marker ID: 415 , Average Detection Rate: 97.26%
+19. Marker ID: 356 , Average Detection Rate: 97.01%
+20. Marker ID: 328 , Average Detection Rate: 96.91%
+21. Marker ID: 437 , Average Detection Rate: 96.45%
+22. Marker ID: 262 , Average Detection Rate: 96.20%
+23. Marker ID: 378 , Average Detection Rate: 95.53%
+24. Marker ID: 364 , Average Detection Rate: 95.22%
+25. Marker ID: 250 , Average Detection Rate: 94.74%
+26. Marker ID: 374 , Average Detection Rate: 94.30%
+27. Marker ID: 275 , Average Detection Rate: 94.07%
+28. Marker ID: 408 , Average Detection Rate: 93.94%
+29. Marker ID: 432 , Average Detection Rate: 93.50%
+30. Marker ID: 326 , Average Detection Rate: 92.56%
+31. Marker ID: 370 , Average Detection Rate: 91.74%
+32. Marker ID: 358 , Average Detection Rate: 90.66%
+33. Marker ID: 322 , Average Detection Rate: 90.34%
+34. Marker ID: 386 , Average Detection Rate: 88.26%
+35. Marker ID: 289 , Average Detection Rate: 83.43%
+36. Marker ID: 377 , Average Detection Rate: 76.40%

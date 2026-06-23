@@ -134,7 +134,7 @@ def build_print_html(markers_info: list[dict], marker_size_mm: float, border_siz
     html_lines.append(f"            width: {marker_size_mm}mm;")
     html_lines.append(f"            height: {marker_size_mm}mm;")
     html_lines.append(f"            padding: {border_size_mm}mm;")
-    html_lines.append("            border: 0.05mm solid #000000; /* Thin black separation line */")
+    html_lines.append("            border: 0.05mm solid #F0F0F0; /* Thin gray separation line */")
     html_lines.append("            margin: -0.025mm; /* Collapse borders to prevent double thickness */")
     html_lines.append("            display: flex;")
     html_lines.append("            justify-content: center;")
@@ -170,15 +170,7 @@ def build_print_html(markers_info: list[dict], marker_size_mm: float, border_siz
     html_lines.append("    </style>")
     html_lines.append("</head>")
     html_lines.append("<body>")
-    
-    # Header showing config details on screen (hidden during printing)
-    html_lines.append("    <div class=\"header\" class=\"no-print\">")
-    html_lines.append("        <h1>ArUco Marker Sheet Generator</h1>")
-    html_lines.append(f"        <p><strong>Dictionary:</strong> {dict_name} | <strong>Marker Size:</strong> {marker_size_mm} mm | <strong>White Border:</strong> {border_size_mm} mm</p>")
-    html_lines.append(f"        <p><strong>Total Markers:</strong> {len(markers_info)} | <strong>Grid:</strong> {cols} columns × {rows} rows ({markers_per_page} per page) | <strong>Total Pages:</strong> {len(pages)}</p>")
-    html_lines.append("        <button class=\"print-btn\" onclick=\"window.print()\">Print Sheet</button>")
-    html_lines.append("    </div>")
-    
+     
     # Render Pages
     for page_idx, page_markers in enumerate(pages):
         html_lines.append(f"    <div class=\"page\" id=\"page-{page_idx+1}\">")

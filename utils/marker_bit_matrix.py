@@ -10,7 +10,7 @@ import json
 JSON_FILE = "marker_detection_rate.json"
 OUTPUT_FILE = "marker_bit_matrix.txt"
 
-DICT = aruco.getPredefinedDictionary(aruco.DICT_4X4_250)
+DICT = aruco.getPredefinedDictionary(aruco.DICT_4X4_1000)
 MARKER_SIZE = 4
 
 # ==========================================================

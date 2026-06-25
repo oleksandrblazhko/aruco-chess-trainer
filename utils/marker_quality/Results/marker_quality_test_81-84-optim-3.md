@@ -2,9 +2,11 @@
 Date: 2026-06-24 17:37:34
 Marker Size: 0.012 meters
 Test Duration per Setup: 3 seconds
-
+
+
 ---
-
+
+
 ## 1. Pose Stability Ranking (Lower Average RSS is Better)
 ```
 1. Marker ID: 366 , Average RSS: 0.0000
@@ -57,7 +59,8 @@ Test Duration per Setup: 3 seconds
 48. Marker ID: 943 , Average RSS: 2.0071
 49. Marker ID: 805 , Average RSS: 2.1761
 ```
-
+
+
 ## 2. Detection Stability Ranking (Higher Average Rate is Better)
 ```
 1. Marker ID: 982 , Average Detection Rate: 99.85%
@@ -96,21 +99,9 @@ Test Duration per Setup: 3 seconds
 34. Marker ID: 761 , Average Detection Rate: 60.39%
 35. Marker ID: 814 , Average Detection Rate: 55.70%
 36. Marker ID: 816 , Average Detection Rate: 47.86%
-37. Marker ID: 764 , Average Detection Rate: 38.23%
-38. Marker ID: 603 , Average Detection Rate: 31.11%
-39. Marker ID: 979 , Average Detection Rate: 28.57%
-40. Marker ID: 927 , Average Detection Rate: 26.26%
-41. Marker ID: 82  , Average Detection Rate: 25.77%
-42. Marker ID: 190 , Average Detection Rate: 22.45%
-43. Marker ID: 131 , Average Detection Rate: 21.40%
-44. Marker ID: 310 , Average Detection Rate: 17.74%
-45. Marker ID: 32  , Average Detection Rate: 12.85%
-46. Marker ID: 87  , Average Detection Rate: 8.16%
-47. Marker ID: 366 , Average Detection Rate: 5.10%
-48. Marker ID: 286 , Average Detection Rate: 5.05%
-49. Marker ID: 458 , Average Detection Rate: 2.04%
 ```
-
+
+
 ## 3. Quality Stability Ranking (Lower RSS StdDev is Better)
 ```
 1. Marker ID: 32  , RSS Std. Dev.: 0.0000

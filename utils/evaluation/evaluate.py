@@ -1,6 +1,7 @@
 import os
 import sys
 import argparse
+import json
 import joblib
 import pandas as pd
 import numpy as np
@@ -46,6 +47,7 @@ def main():
     parser.add_argument("--model", type=str, default="model.pkl", help="Path to the saved model.pkl file. Default is 'model.pkl'.")
     parser.add_argument("--dict", type=str, default="4X4_250", help="ArUco predefined dictionary. Default is 4X4_250.")
     parser.add_argument("--limit", type=int, default=None, help="Limit output to top N candidates.")
+    parser.add_argument("--output", type=str, default=None, help="Path to save the results (supports .csv, .json, .txt/log).")
     
     args = parser.parse_args()
     
@@ -110,16 +112,75 @@ def main():
     if args.limit is not None:
         df = df.head(args.limit)
         
-    # 6. Print results
-    print(f"\n--- Marker Quality Evaluation Results (Model: {model_type}) ---")
-    print(f"{'ID':<6} | {'Q Score':<8} | {'Ones':<4} | {'T':<4} | {'Chess':<5} | {'Isolated':<4} | {'Cmax':<4} | {'BlackComp':<9} | {'EdgeWhite':<9}")
-    print("-" * 85)
+    # 6. Prepare and Print results
+    output_lines = []
+    output_lines.append(f"\n--- Marker Quality Evaluation Results (Model: {model_type}) ---")
+    output_lines.append(f"{'ID':<6} | {'Q Score':<8} | {'Ones':<4} | {'T':<4} | {'Chess':<5} | {'Isolated':<4} | {'Cmax':<4} | {'BlackComp':<9} | {'EdgeWhite':<9}")
+    output_lines.append("-" * 85)
     for idx, row in df.iterrows():
-        print(f"{int(row['MarkerID']):<6} | {row['Q']:<8.4f} | {int(row['Ones']):<4} | {int(row['Transitions']):<4} | {int(row['Chessboard']):<5} | {int(row['Isolated']):<4} | {int(row['Cmax']):<4} | {int(row['BlackComponents']):<9} | {int(row['EdgeWhiteCells']):<9}")
+        output_lines.append(f"{int(row['MarkerID']):<6} | {row['Q']:<8.4f} | {int(row['Ones']):<4} | {int(row['Transitions']):<4} | {int(row['Chessboard']):<5} | {int(row['Isolated']):<4} | {int(row['Cmax']):<4} | {int(row['BlackComponents']):<9} | {int(row['EdgeWhiteCells']):<9}")
         
     ordered_ids = [str(int(mid)) for mid in df["MarkerID"]]
-    print("\n--- Ordered IDs (Descending by ML Quality) ---")
-    print(",".join(ordered_ids))
+    output_lines.append("\n--- Ordered IDs (Descending by ML Quality) ---")
+    output_lines.append(",".join(ordered_ids))
+    
+    # Print to screen
+    for line in output_lines:
+        print(line)
+        
+    # 7. Save results if --output is specified
+    if args.output:
+        # Create output directory if it doesn't exist
+        out_dir = os.path.dirname(args.output)
+        if out_dir and not os.path.exists(out_dir):
+            os.makedirs(out_dir)
+            
+        ext = os.path.splitext(args.output)[1].lower()
+        if ext == '.csv':
+            df_out = df[["MarkerID", "Q", "Ones", "Transitions", "Chessboard", "Isolated", "Cmax", "BlackComponents", "EdgeWhiteCells"]].copy()
+            df_out.rename(columns={"Q": "Q_Score", "Transitions": "T", "Chessboard": "Chess", "BlackComponents": "BlackComp", "EdgeWhiteCells": "EdgeWhite"}, inplace=True)
+            df_out.to_csv(args.output, index=False)
+            print(f"\nResults saved to CSV: {args.output}")
+        elif ext == '.json':
+            df_out = df[["MarkerID", "Q", "Ones", "Transitions", "Chessboard", "Isolated", "Cmax", "BlackComponents", "EdgeWhiteCells"]].copy()
+            df_out.rename(columns={"Q": "Q_Score", "Transitions": "T", "Chessboard": "Chess", "BlackComponents": "BlackComp", "EdgeWhiteCells": "EdgeWhite"}, inplace=True)
+            
+            # Convert table rows to a list of dictionaries with standard Python types
+            table_data = df_out.to_dict(orient="records")
+            for row_dict in table_data:
+                for k, v in row_dict.items():
+                    if isinstance(v, (np.integer, np.int64)):
+                        row_dict[k] = int(v)
+                    elif isinstance(v, (np.floating, np.float64)):
+                        row_dict[k] = float(v)
+            
+            # List of ordered marker IDs as integers
+            ordered_ids_ints = [int(mid) for mid in df["MarkerID"]]
+            
+            # Create customized JSON representation
+            # Format each row dict on a single line
+            table_lines = []
+            for row in table_data:
+                row_str = json.dumps(row)
+                table_lines.append("        " + row_str)
+                
+            table_json = "[\n" + ",\n".join(table_lines) + "\n    ]"
+            ordered_ids_json = json.dumps(ordered_ids_ints)
+            
+            json_string = (
+                "{\n"
+                f'    "table": {table_json},\n'
+                f'    "ordered_ids": {ordered_ids_json}\n'
+                "}"
+            )
+            
+            with open(args.output, 'w', encoding='utf-8') as f:
+                f.write(json_string + '\n')
+            print(f"\nResults saved to JSON: {args.output}")
+        else:
+            with open(args.output, 'w', encoding='utf-8') as f:
+                f.write('\n'.join(output_lines) + '\n')
+            print(f"\nResults saved to text file: {args.output}")
 
 if __name__ == "__main__":
     main()
